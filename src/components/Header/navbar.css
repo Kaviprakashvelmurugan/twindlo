@@ -44,7 +44,9 @@ body{
   align-items: center;
 }
 
-
+.overLay{
+  display: none;
+}
 .nav-headings-box p{
   color:#424242;
   font-size: 18px ;
@@ -170,7 +172,7 @@ body{
   justify-content: space-around;
   align-items: flex-start;
   width: 60%;
-  height: 50vh;
+  height: 80vh;
   top: 11vh;
   right:-100%;
   background: rgb(255, 255, 255);
@@ -180,8 +182,25 @@ body{
   -webkit-backdrop-filter: blur(20px);    
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: right 0.7s ease;
+  z-index: 2;
 }
 
+
+.overlay{
+  position: absolute;
+  width: 100%;
+  top:11vh;
+  height: 89vh;
+  background-color: #5f5f63b6;
+  display: block;
+  opacity: 0;
+  transition: all 0.6s linear;
+  z-index: 1;
+}
+
+.showOverlay{
+  opacity: 1;
+}
 .show-menu-bar{
   right:0;
 }

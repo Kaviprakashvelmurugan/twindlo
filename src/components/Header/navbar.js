@@ -62,6 +62,10 @@ const Header = () => {
                   </div>
             </div>
 
+            <div className={`overlay ${showMenu ? 'showOverlay':''}`}>
+
+            </div>
+
        </div>
 }
 export default Header
