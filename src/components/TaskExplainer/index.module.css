@@ -1,0 +1,203 @@
+.iconExplainer{
+   width: 100%;
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   display: flex;
+   flex-direction: row;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   transition: height 0.4s ease-out;
+   height:70px; 
+}
+
+.iconExpLeft{
+   width:25%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height:100%;
+}
+
+.iconExpLeft img{
+  width:30%;
+}
+
+.iconExpLeftWhenOnMouse{
+   height: 50%;
+   width:25%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.iconExplainerExpanded {
+  height: 150px;
+}
+
+.iconExpLeftWhenOnMouse img{
+  width:30%;
+  padding:10%  0 7% 0;
+}
+
+.iconExpRight{
+   width:75%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items:flex-start;
+   padding-top: 0;
+}
+
+.iconExpRightWhenOnMouse{
+    width:75%;
+   display: flex;
+   flex-direction: column;
+   padding-top: 4%;
+   justify-content: flex-start;
+   align-items:flex-start;
+} 
+
+.iconExpRightWhenOnMouse h1{
+     color: rgb(0, 0, 0);
+   font-size: 1em;
+   margin:0;
+   font-weight: 500;
+   width:90%;
+}
+.iconExpRight h1{
+   color: rgb(0, 0, 0);
+   font-size: 1em;
+   margin:0;
+   font-weight: 500;
+   width:90%;
+}
+
+.iconExpRightWhenOnMouse p {
+    color: rgb(154, 154, 154);
+    width:90%;
+}
+.iconExpRight p{
+   color: rgb(154, 154, 154);
+   width:90%;
+}
+
+
+@media (min-width:460px)  and (max-width:767px){
+
+ .iconExpRightWhenOnMouse h1{
+     color: rgb(0, 0, 0);
+   font-size: 0.8em;
+   margin:0;
+   font-weight: 500;
+   width:90%;
+}
+.iconExpRight h1{
+   color: rgb(0, 0, 0);
+   font-size: 0.8em;
+   margin:0;
+   font-weight: 500;
+   width:90%;
+}
+
+.iconExpRightWhenOnMouse p {
+    color: rgb(154, 154, 154);
+    width:90%;
+    font-size: 0.8em;
+}
+.iconExpRight p{
+   color: rgb(154, 154, 154);
+   width:90%;
+   font-size: 0.8em;
+}
+   
+}
+
+@media(max-width:460px){
+ .iconExplainer{
+   width: 100%;
+   background-color: rgb(255, 255, 255);
+   border-radius: 5px;
+   display: flex;
+   flex-direction: row;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   transition: height 0.4s ease-out;
+   height:50px; 
+}
+.iconExpLeft{
+   width:25%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height:100%;
+}
+
+.iconExpLeft img{
+  width:25%;
+}
+
+.iconExpLeftWhenOnMouse{
+   height: 50%;
+   width:25%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.iconExplainerExpanded {
+  height: 100px;
+}
+
+.iconExpLeftWhenOnMouse img{
+  width:30%;
+  padding:10%  0 7% 0;
+}
+
+.iconExpRight{
+   width:75%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items:flex-start;
+   padding-top: 0;
+}
+
+.iconExpRightWhenOnMouse{
+    width:75%;
+   display: flex;
+   flex-direction: column;
+   padding-top: 4%;
+   justify-content: flex-start;
+   align-items:flex-start;
+} 
+
+.iconExpRightWhenOnMouse h1{
+     color: rgb(0, 0, 0);
+   font-size: 0.8em;
+   margin:0;
+   font-weight: 500;
+   width:90%;
+}
+.iconExpRight h1{
+   color: rgb(0, 0, 0);
+   font-size: 0.8em;
+   margin:0;
+   font-weight: 500;
+   width:90%;
+}
+
+.iconExpRightWhenOnMouse p {
+    color: rgb(154, 154, 154);
+    width:90%;
+    font-size: 0.7em;
+}
+.iconExpRight p{
+   color: rgb(154, 154, 154);
+   width:90%;
+   font-size: 0.7em;
+}
+}

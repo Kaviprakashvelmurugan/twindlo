@@ -1,0 +1,120 @@
+.blackBtn{
+    background-color: rgb(33, 33, 34);
+    height:13%;
+    width:70%;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color:#ffffff;
+}
+
+.defaultbutton{
+    background-color: rgb(235, 235, 235);
+    height:13%;
+    width:70%;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color:#0e0d0d;
+}
+
+button {
+    transition: all 0.7s ease-in-out;
+    flex-shrink: 0;
+}
+
+
+
+@media(min-width:460px) and (max-width:767px){
+   .blackBtn{
+    background-color: rgb(33, 33, 34);
+    height:40%;
+    width:110px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    color:#ffffff;
+}
+
+.defaultbutton{
+    background-color: rgb(235, 235, 235);
+    height:40%;
+    width:110px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    color:#0e0d0d;
+}
+
+}
+
+
+@media(min-width:768px) and (max-width:1350px){
+   .blackBtn{
+    background-color: rgb(33, 33, 34);
+    height:40%;
+    width:120px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    color:#ffffff;
+}
+
+.defaultbutton{
+    background-color: rgb(235, 235, 235);
+    height:40%;
+    width:120px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    color:#0e0d0d;
+}
+
+}
+
+
+@media (max-width:460px){
+    .blackBtn{
+    background-color: rgb(33, 33, 34);
+    height:30%;
+    width:120px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7em;
+    color:#ffffff;
+
+
+}
+
+.defaultbutton{
+    background-color: rgb(235, 235, 235);
+   height:30%;
+    width:120px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7em;
+    color:#0e0d0d;
+
+}
+
+button {
+    transition: all 0.7s ease-in-out;
+    flex-shrink: 0
+}
+}
