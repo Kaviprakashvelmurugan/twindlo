@@ -192,15 +192,26 @@ body{
   top:11vh;
   height: 89vh;
   background-color: #5f5f63b6;
-  display: block;
-  opacity: 0;
+  display: none;
   transition: all 0.6s linear;
   z-index: 1;
 }
 
 .showOverlay{
   opacity: 1;
+  display: block;
+  animation: show-overlay 0.7s ease-out;
 }
+
+@keyframes show-overlay {
+  0%{
+   opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
 .show-menu-bar{
   right:0;
 }

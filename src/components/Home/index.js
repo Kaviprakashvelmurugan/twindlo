@@ -1,7 +1,9 @@
 import {Component} from 'react'
+import Header from '../Header/navbar'
 import UserFeedback  from '../UserFeedback'
 import KeyFeatures from '../KeyFeatures'
 import FooterTwindlo from '../FooterTwindlo'
+
 import './index.css'
 
 class Home extends Component {
@@ -87,6 +89,7 @@ const elementObserver = new IntersectionObserver(entries=>{
        
        return (
          <>
+         <Header/>
          <div className='home-hero-bg'>
             <div className='home-hero'>
                 <h1>Find Your Perfect Study Partner</h1>
