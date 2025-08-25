@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import './navbar.css'
 import {Menu,X} from 'lucide-react'
 const Header = () => {
@@ -57,8 +58,9 @@ const Header = () => {
                   <p>Challenges</p>
                   <p>Leaderboard</p>
                   <div className='nav-mobile-logout-login-buttons'> 
-                       <button>Sign in</button>
-                       <button>Login</button>
+
+                       <Link to='/login' className='loginLink'><button >Sign in</button></Link>
+                       <Link to='/login' className='loginLink'><button>Login</button></Link>
                   </div>
             </div>
 

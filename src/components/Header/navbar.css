@@ -95,6 +95,11 @@ body{
 }
 @media (max-width: 810px){
  
+
+  .loginLink{
+
+
+  }
 .nav-bar {
   position: fixed;
   top:0;
@@ -234,15 +239,20 @@ body{
   display: flex;
   flex-direction: row;
   justify-content:flex-start;
-  gap:10px;
+  gap:20px;
   align-items: center;
   width:80%;
   margin-left: 10%;
   
 }
-.nav-mobile-logout-login-buttons button{
-  height:50%;
-  width:40%;
+
+.loginLink{
+  height: 50%;
+  width:50%;
+}
+.loginLink button{
+  height:80%;
+  width:100%;
   background-image: linear-gradient(to left,#1234df,#1c76ed) ;
   border: none;
   cursor: pointer;
