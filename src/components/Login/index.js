@@ -4,6 +4,13 @@ import Styles from './index.module.css'
 import { FaHome } from "react-icons/fa";
 import { IoIosInformationCircle } from "react-icons/io";
 import { MdEnhancedEncryption } from "react-icons/md";
+import { FaSignInAlt } from "react-icons/fa";
+import {RiInstagramFill } from "react-icons/ri"; 
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+
 
 class Login extends Component{
 
@@ -15,7 +22,7 @@ class Login extends Component{
             'Join a thriving community, compete, stay motivated, and celebrate progress every step of the way.'
     ]
 
-    navTextsForMobile= ['Arjun','Crush' ,'Execute', 'Elevate','Connect']
+    navTextsForMobile= ['Organize','Crush' ,'Execute', 'Elevate','Connect']
     navTextsForTab = ['Organize your day, crush goals.','Track streaks & build habits.','Complete tasks with friends.','Level up with AI challenges.','Join, compete, stay motivated.']
     navTextsForLap = ['Organize your tasks and accomplish daily goals efficiently.','Stay consistent, track your progress, and maintain productive streaks.','Collaborate with friends to complete tasks and achieve more.','Level up with AI insights and meaningful task challenges.','Join a thriving community and celebrate every achievement together.']
     navTextsForDesktop = ['Organize your day, crush your goals, and watch your progress grow with every task you complete.',
@@ -25,10 +32,12 @@ class Login extends Component{
             'Join a thriving community, compete, stay motivated, and celebrate progress every step of the way.']
   
    
-            state = { navTextIndex: 0, navTextPosition: 0, deleting: false, pause: false }
+    state = { navTextIndex: 0, navTextPosition: 0, deleting: false, pause: false ,formType:'login'}
 
+   
+    
    componentDidMount() {
-    const navTextUpdation = setInterval(() => {
+    this.navTextUpdation = setInterval(() => {
         this.setState(prevState => {
             if (prevState.pause) {
                 return { pause: false, deleting: true }
@@ -51,7 +60,9 @@ class Login extends Component{
 
         })
     }, 100)
+    
 
+   
    
     if (window.innerWidth<=468) {
         this.loginNavTextsList= this.navTextsForMobile
@@ -65,9 +76,121 @@ class Login extends Component{
     else{
         this.loginNavTextsList=this.navTextsForDesktop
     }
- }
 
-    
+    console.log('Login component mounted');
+
+   }
+
+     componentWillUnmount() {
+        clearInterval(this.navTextUpdation)
+        console.log('Login component unmounted');
+    }
+
+
+
+
+    usernameLabelRef = createRef()
+    passwordLabelRef = createRef()
+    navTextRef = createRef()
+    loginFormRef = createRef()
+
+    clickingUserName = ()=> {
+        if (this.usernameLabelRef.current){
+            this.usernameLabelRef.current.classList.add(Styles.labelUp)
+        }
+    }
+
+    clickingPassword = ()=> {
+        if(this.passwordLabelRef.current){
+            this.passwordLabelRef.current.classList.add(Styles.labelUp)
+        }
+    }
+
+
+    changeForm = (event)=>{
+        
+        const {formType} = this.state
+        const loginElement = this.loginFormRef.current
+
+        loginElement.classList.remove(Styles.formSigninUp);
+        loginElement.classList.remove(Styles.formLoginUp);
+        
+        void loginElement.offsetWidth;
+        if (formType === 'login') {
+            loginElement.classList.add(Styles.formSigninUp);
+        } 
+        else {    
+           loginElement.classList.add(Styles.formLoginUp);
+        }
+        
+        this.usernameLabelRef.current.classList.remove(Styles.labelUp)
+        this.passwordLabelRef.current.classList.remove(Styles.labelUp)
+        
+        event.preventDefault();
+          this.setState((prevState)=>{
+            if (prevState.formType==='login'){
+            
+                return {formType:'signin'}
+            }
+            return {formType:'login'}
+        })
+
+    }
+
+
+    renderLoginForm(){
+        const {formType} = this.state
+        return (
+                    <div ref = {this.loginFormRef}  className={`${Styles.login} ${formType === 'signin' ? Styles.formSigninUp : Styles.formLoginUp}`}>
+                            <div className={Styles.formHeader}>
+                                <img src='https://res.cloudinary.com/djtbynnte/image/upload/v1756044140/twindlo_black_logo_jvilpn.png' alt='twindlo-black-logo' />
+                                <div className={Styles.signinCta}>
+                                    <h1>Welcome back to twindlo</h1>
+                                    <p> {formType==='login'? 'New to twindlo ?':'Already have an account?'} <button  onClick={this.changeForm}> {formType==='login' ? 'Sign in to continue' :'click here to login'} </button></p>
+                                </div>
+                                
+                            </div>
+                            <div className={Styles.inputElement}>
+                                <label ref = {this.usernameLabelRef} htmlFor='username'>username</label>
+                                <input onClick={this.clickingUserName} id='username' type='text' />
+                            </div>
+                            <div className={Styles.inputElement}>
+                                <label ref = {this.passwordLabelRef} htmlFor='password'>password</label>
+                                 <input onClick={this.clickingPassword} id='password' type='text' /> 
+                            </div>
+
+                            <div className={Styles.loginCtaBox}>
+                                    <button className={Styles.loginCta}> {formType==='login'?'Login':'Sign in'} <FaSignInAlt/> </button>
+                            </div>
+
+                            <div className={Styles.continueWithGoogle}>
+                                 <div className={Styles.cwgHrBox}>
+                                    <hr/>
+                                      <p>or</p>
+                                    <hr/>
+                                 </div>
+                                 <div className={Styles.cwgCta}>
+                                     <button>
+                                        <img src='https://res.cloudinary.com/djtbynnte/image/upload/v1756084203/search_byc0f8.png' alt='continue-with-google'/>
+                                        <p>Continue with google</p>
+                                     </button>
+                                 </div>
+                            </div>
+                          </div>
+        )
+    }
+
+
+
+  
+
+
+
+
+
+
+
+
     render(){
 
         const {navTextIndex,navTextPosition} = this.state
@@ -93,6 +216,51 @@ class Login extends Component{
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div className={Styles.loginContentBg}>
+                   <div className={Styles.loginContent}>
+                       <div className={Styles.loginHero}>
+                              <div className={Styles.loginHeroContent}>
+                                  <div className={Styles.heroUsersCountBox}>
+                                  <div className={Styles.usersCountImgBox}>
+                                    <img src='https://res.cloudinary.com/djtbynnte/image/upload/v1756097155/7.2k_users_tnu6ym.png' alt='7.2k users'/>
+                                  </div>
+
+                                  <div className={Styles.usersCountTextBox}>
+                                      <h1>JOIN WITH 7.2K+ USERS</h1>
+                                      <p>Built for your consistency.</p>
+                                  </div>
+                                  </div> 
+                                
+
+                                  <div className={Styles.loginFooterBox}>
+                                      <div className={Styles.loginSocialMediaBox}>
+                                          <div>
+                                            <RiInstagramFill/>
+                                          </div> 
+                                           <div>
+                                             <FaFacebookF/>
+                                           </div>
+                                           <div>
+                                             <FaTwitter/>
+                                           </div>
+                                           <div>
+                                            <FaLinkedinIn/>
+                                           </div>
+                                      </div>
+
+                                      <div className={Styles.loginFooterTextContent}>
+                                          <h1>Twindlo - Your Goal-Getting Sidekick</h1>
+                                          <p1>Made with <FaHeart/> </p1>
+                                      </div>
+                                  </div>
+                              </div>
+                       </div>
+
+                       <form className={Styles.form}>
+                          {this.renderLoginForm()}
+                       </form>
+                   </div>
                 </div>
             </div>
         )
