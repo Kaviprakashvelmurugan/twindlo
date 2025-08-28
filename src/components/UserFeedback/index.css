@@ -605,10 +605,10 @@
 
 .user-review-box{
     height: 1600px;
-    width:95%;
+    width:100%;
     border:none;
-    background-image: linear-gradient(to right,rgba(9, 106, 224, 0.723),#d239e3be);
-    border-radius:10px;
+    background-image: linear-gradient(to right,rgba(25, 49, 228, 0.997),#4871e2);
+    border-radius:0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
