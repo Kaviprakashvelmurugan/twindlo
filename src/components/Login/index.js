@@ -179,18 +179,7 @@ class Login extends Component{
                           </div>
         )
     }
-
-
-
-  
-
-
-
-
-
-
-
-
+    
     render(){
 
         const {navTextIndex,navTextPosition} = this.state

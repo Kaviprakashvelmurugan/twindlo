@@ -742,7 +742,7 @@
 
 .collaborate-box{
     background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1752629589/gradient-img_ksgx2y.jpg');
-    width:90%;
+    width:100%;
     background-size:cover;
     height:820px;
     border-radius: 12px;
@@ -1180,7 +1180,7 @@
 }
 
 .sticky-content{
-    width:90%;
+    width:100%;
   
     display: flex;
     flex-direction: column;
@@ -1594,7 +1594,7 @@
     color:#98451c;
 }
 .achive-body{
-    width:75%;
+    width:95%;
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
@@ -1613,7 +1613,7 @@
 }
 
 .achive-cta{
-    width:55%;
+    width:65%;
     height:45px;
     border-radius: 7px;
     font-size: 10px;
