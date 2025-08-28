@@ -1,3 +1,20 @@
+button:focus {
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent; /* For iOS Safari */
+  -webkit-focus-ring-color: transparent;    /* For iOS focus ring */
+  outline: none;
+}
+
+button:active{
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent; /* For iOS Safari */
+  -webkit-focus-ring-color: transparent;    /* For iOS focus ring */
+
+}
+
+
 .blackBtn{
     background-color: rgb(33, 33, 34);
     height:13%;
