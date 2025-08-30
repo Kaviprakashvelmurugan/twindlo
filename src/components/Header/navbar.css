@@ -20,24 +20,28 @@ body{
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 999;
 }
+
 .nav-logo-box{
   width:20% ;
   display: flex;
   flex-direction: row;
-  justify-content:flex-start;
+  justify-content:center;
   align-items: center;
-
 }
 
 .nav-logo-box img:nth-child(1){
-    padding-left: 20px;
-    width:25%;
+    width:20%;
+    padding: 0;
+    margin: 0;
 }
+
 .nav-logo-box img:nth-child(2){
-    width:40%;
+    width:30%;
+    margin: 0;
 }
+
 .nav-headings-box{
-  width:57%;
+  width:55%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -47,9 +51,10 @@ body{
 .overLay{
   display: none;
 }
+
 .nav-headings-box p{
   color:#424242;
-  font-size: 18px ;
+  font-size: 1em ;
   margin:0;
   padding: 0;
 }
@@ -59,14 +64,16 @@ body{
   
 }
 .log-in-out-box{
- width:23%;
+ width:25%;
+ height: 100%;
  display: flex;
  flex-direction: row;
  justify-content: space-around;
  align-items: center;
 }
+
 .log-in-out-box button{
-    width:130px;
+    width:40%;
     height:40px;
     background-image: linear-gradient(to right,#153491,#4537e2,#0b51e8);
     border-width:0px;
@@ -88,18 +95,50 @@ body{
  padding-right:30px;
 }
 
+
+
 @media (min-width: 811px) {
   .mobile-nav-menu {
     display: none !important; 
   }
 }
-@media (max-width: 810px){
+@media (max-width:1200px) {
+  .nav-logo-box img:nth-child(1){
+    width:30%;
+    padding: 0;
+    margin: 0;
+  
+}
+.nav-logo-box img:nth-child(2){
+    width:45%;
+    margin: 0;
  
+}
 
-  .loginLink{
+.log-in-out-box button{
+    width:40%;
+    height:40%;
+    background-image: linear-gradient(to right,#153491,#4537e2,#0b51e8);
+    border-width:0px;
+    border-radius: 6px;
+    color:#f5f5fa;
+    cursor:pointer;
+    margin:0;
+}
+
+.nav-headings-box p{
+  font-size: 0.9em;
+}
 
 
-  }
+}
+@media (max-width: 810px){
+.navLinks{
+  text-decoration: none;
+  width: 100%;
+  height: 40px;
+}
+
 .nav-bar {
   position: fixed;
   top:0;
@@ -116,7 +155,6 @@ body{
 }
  .nav-logo-box{
   width:60%;
-
   display: flex;
   flex-direction: row;
   justify-content:flex-start;
@@ -174,10 +212,10 @@ body{
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content:flex-start;
   align-items: flex-start;
   width: 60%;
-  height: 80vh;
+  height: 89vh;
   top: 11vh;
   right:-100%;
   background: rgb(255, 255, 255);
@@ -220,72 +258,38 @@ body{
 .show-menu-bar{
   right:0;
 }
-.mobile-nav-menu p{
-  height:15px;
+.mobile-nav-menu .navLinks p{
+  width:100%;
+  height:100%;
+  margin: 0;
+  background-color: #00000000;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: fle-start;
   color: #414040;
-  margin-left: 10%;
+  padding-left: 10%;
   cursor: pointer;
-  transition: color 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
-.mobile-nav-menu p:hover{
+
+ .mobile-nav-menu p:hover{
   color:#5a50e0 ;
-}
-.nav-mobile-logout-login-buttons{
-  height:15%;
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  gap:20px;
-  align-items: center;
-  width:80%;
-  margin-left: 10%;
-  
+  background-color: #f0f0f0fd;
+ }
+
+ @media(min-width:500px){
+   .nav-logo-box img:nth-child(1){
+      width:15%;
+      margin-right: 10px;
+      margin-left: 10%;
+    }
+
+    .nav-logo-box img:nth-child(2){
+      width:30%;
+    }
+ }
 }
 
-.loginLink{
-  height: 50%;
-  width:50%;
-}
-.loginLink button{
-  height:80%;
-  width:100%;
-  background-image: linear-gradient(to left,#1234df,#1c76ed) ;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  color:#ffff;
-  font-size: 0.8rem;
-}
-}
 
-@media(min-width:811px) and (max-width:1020px ){
- .nav-headings-box p{
-  color:#424242;
-  font-size: 15px;
-  margin:0;
-  padding: 0;
-}
-.log-in-out-box{
- width:25%;
- display: flex;
- flex-direction: row;
- justify-content: space-around;
- align-items: center;
-}
-
-.log-in-out-box button{
-    width:100px;
-    height:40px;
-    background-image: linear-gradient(to right,#153491,#4537e2,#c84beb);
-    border-width:0px;
-    border-radius: 6px;
-    color:#f5f5fa;
-    cursor:pointer;
-    
-}
-
-}

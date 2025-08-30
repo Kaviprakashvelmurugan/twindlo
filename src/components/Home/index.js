@@ -3,6 +3,7 @@ import Header from '../Header/navbar'
 import UserFeedback  from '../UserFeedback'
 import KeyFeatures from '../KeyFeatures'
 import FooterTwindlo from '../FooterTwindlo'
+import ImPact from '../Impact'
 
 import './index.css'
 
@@ -92,7 +93,7 @@ const elementObserver = new IntersectionObserver(entries=>{
          <Header/>
          <div className='home-hero-bg'>
             <div className='home-hero'>
-                <h1>Find Your Perfect Study Partner</h1>
+                <h1>Find Your Perfect <span>Study Partner</span></h1>
                 <p>Connect, collaborate, and achieve your goals together.</p>
                 <button>Get Started</button>
             </div>
@@ -203,7 +204,9 @@ const elementObserver = new IntersectionObserver(entries=>{
          </div>
   
          <KeyFeatures/>
-         
+          
+         <ImPact/>
+
           <FooterTwindlo/>
          </>
        )

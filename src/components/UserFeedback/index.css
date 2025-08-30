@@ -2,11 +2,12 @@
     box-sizing: border-box;
 }
 .user-review-box{
-    height: 800px;
-    width:85%;
+    height: 1000px;
+    padding: 2%;
+    width:100%;
     border:none;
-    background-image: linear-gradient(to right,rgba(9, 106, 224, 0.723),#d239e3be);
-    border-radius:10px;
+    background-image: linear-gradient(to right,rgb(5, 5, 73),#0713c2,#3687f2);
+    border-radius:0px;
     display: flex;
     flex-direction: row;
 }
@@ -188,7 +189,7 @@
 }
 
 .feedback-part-2-video-box{
-   width:90%;
+   width:80%;
    height:50%;
    display: flex;
    flex-direction: column;
@@ -293,10 +294,9 @@
 
 .user-review-box{
     max-height: 2000px;
-    width:85%;
+    width:100%;
     border:none;
-    background-image: linear-gradient(to right,rgba(9, 106, 224, 0.723),#d239e3be);
-    border-radius:10px;
+     background-image: linear-gradient(to right,rgb(5, 5, 73),#0713c2,#3687f2);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -606,8 +606,9 @@
 .user-review-box{
     height: 1600px;
     width:100%;
+    padding: 1%;
     border:none;
-    background-image: linear-gradient(to right,rgba(25, 49, 228, 0.997),#4871e2);
+    background-image: linear-gradient(to right,rgb(5, 5, 73),#0713c2,#3687f2);
     border-radius:0px;
     display: flex;
     flex-direction: column;

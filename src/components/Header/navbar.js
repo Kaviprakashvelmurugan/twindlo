@@ -34,11 +34,11 @@ const Header = () => {
             </div>
 
             <div className='nav-headings-box'>
-                <p>Home</p>
-                <p>Explore</p>
-                <p>Room</p>
+            
+                <p>Tutorial</p>
                 <p>Challenges</p>
                 <p>Leaderboard</p>
+                <p>Help</p>
             </div>
 
             <div className='log-in-out-box'>
@@ -52,16 +52,10 @@ const Header = () => {
              
       
              <div className={`mobile-nav-menu ${showMenu ? 'show-menu-bar':''}`}>
-                  <p>Home</p>
-                  <p>Explore</p>
-                  <p>Room</p>
-                  <p>Challenges</p>
-                  <p>Leaderboard</p>
-                  <div className='nav-mobile-logout-login-buttons'> 
-
-                       <Link to='/login' className='loginLink'><button >Sign in</button></Link>
-                       <Link to='/login' className='loginLink'><button>Login</button></Link>
-                  </div>
+                  <Link className='navLinks'><p>Challenges</p></Link>
+                  <Link className='navLinks'><p>Leaderboard</p></Link>
+                  <Link className='navLinks'><p>Login</p></Link>
+                  <Link className='navLinks'><p>Sign in</p></Link>
             </div>
 
             <div className={`overlay ${showMenu ? 'showOverlay':''}`}>
