@@ -195,7 +195,7 @@ const KeyFeatures = () => {
                                             </p>
                                            
                                            :<p>
-                                                                Progress plateaus without pressure. We pair you with rivals who expose your weak spots through timed challenges and scoreboard pressure. Expect late-night comebacks, tactical taunts, and eventual mutual respect ,Find your ultimate study rival—someone at your level who pushes you harder. Twindlo pairs you with competitors for weekly knowledge battles, streak duels, and progress showdowns. The closer the match, the fiercer the growth. Will you out-learn them this month?
+                                                                Progress plateaus without pressure. We pair you with rivals who expose your weak spots through timed challenges and scoreboard pressure. Expect late-night comebacks, tactical taunts, and eventual mutual respect ,Find your ultimate study rival—someone at your level who pushes you harder. Twindlo pairs you with competitors for weekly knowledge battles, streak duels, and progress showdowns. 
                                            </p>
                     }
 

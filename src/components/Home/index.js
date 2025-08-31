@@ -3,6 +3,7 @@ import Header from '../Header/navbar'
 import UserFeedback  from '../UserFeedback'
 import KeyFeatures from '../KeyFeatures'
 import FooterTwindlo from '../FooterTwindlo'
+import TwindloHighlights from '../TwindloHighlights'
 import ImPact from '../Impact'
 
 import './index.css'
@@ -198,15 +199,22 @@ const elementObserver = new IntersectionObserver(entries=>{
              </div>
              
          </div>
+
+
+         <TwindloHighlights/>
          
          <div className='user-feedback-container'>
              <UserFeedback/>
          </div>
+
+          
   
-         <KeyFeatures/>
+          <KeyFeatures/>
+
+        
           
          <ImPact/>
-
+         
           <FooterTwindlo/>
          </>
        )
