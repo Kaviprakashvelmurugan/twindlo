@@ -83,7 +83,7 @@ class Login extends Component{
 
     console.log('Login component mounted');
 
-    
+    console.log('checking node modules commiting or not')
 
    }
 
@@ -93,10 +93,12 @@ class Login extends Component{
 
      componentWillUnmount() {
         clearInterval(this.navTextUpdation)
-        console.log('Login component unmounted');
+
     }
 
-
+   hi = ()=>{
+       console.log('checking node modules commiting or not')
+   }
 
 
     usernameLabelRef = createRef()
@@ -186,6 +188,7 @@ class Login extends Component{
         })
 
     }
+    
     
 
     updateEmail = event =>{
