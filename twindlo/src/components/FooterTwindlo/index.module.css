@@ -1,0 +1,774 @@
+button:focus {
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent; /* For iOS Safari */
+  -webkit-focus-ring-color: transparent;    /* For iOS focus ring */
+  outline: none;
+}
+
+button:active{
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent; /* For iOS Safari */
+  -webkit-focus-ring-color: transparent;    /* For iOS focus ring */
+
+}
+
+
+
+
+
+.footerBg{
+    background-color: black;
+    height:85vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footerHeadingBg{
+  width:100%;
+  height:25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footerHeading{
+    color: rgb(225, 226, 228);
+    font-size: 2.3em;
+    font-weight: 400;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+.footerLinksBg{
+    width:70%;
+    height:25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.linkChildBg{
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 2s linear;
+    transform: translateY(0%);
+    opacity: 0;
+}
+
+.showLinkBg{
+    transform: translateY(0%);
+    opacity: 1;
+}
+.linkChildBg h1{
+    color: #b4b4b4;
+    font-size: 1em;
+    font-weight: 400;
+    height:30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    min-width: 40%;
+}
+
+.linkChildBg li{
+    color: #676767;
+    font-size: 0.9em;
+    font-weight: 400;
+    height:17.5%;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    cursor: pointer;
+}
+.linkChildBg li:hover{
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right,#4d85d4,#ca1ef9);
+}
+
+.showFooterElement{
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.footerSocialBg{
+    width:60%;
+    height:30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contactBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:3%;
+}
+
+
+.logoBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoBox img{
+    width: 28%;
+    opacity: 0;
+}
+
+
+.showLogo{
+     animation: show-logo-in-footer linear 2s forwards;
+}
+@keyframes show-logo-in-footer {
+    0%{
+      opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.mediaBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+
+.contactBox h1{
+    color: #a8c4e0;
+    font-size: 0.9em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-width: 30%;
+    text-align: left;
+}
+
+.contactBox p{
+    color: #adafb1;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-width:30% ;
+    text-align:left;
+    cursor: pointer;
+    transition:all 0.3s linear;
+}
+.contactBox p:hover{
+    transform: scale(1.1);
+}
+
+.mediaBox svg{
+    color: #bbccdd;
+    font-size:1em;
+    cursor: pointer;
+    transition:all 0.3s linear;
+}
+
+.mediaBox svg:hover{
+    transform: scale(1.2);
+}
+
+.copyrightBar{
+    width:100%;
+    height:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5%;
+}
+
+.copyrightBar h1{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width:80%;
+    font-size: 0.8em;
+    color: #676767;
+    font-weight: 300;
+    gap:0.5%;
+}
+
+
+
+.copyRightPara{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
+    color: #676767;
+    font-weight: 300;
+    width:40%;
+    gap:1%;
+}
+
+
+
+.copyRightPara svg{
+    animation: blinking-heart 1s linear  infinite ;
+    
+    
+}
+
+@keyframes blinking-heart {
+    0%{
+        opacity: 0;
+    }
+    
+    50%{
+       opacity: 1;
+    }
+    
+    100%{
+        opacity:0;
+    }
+}
+
+@media(min-width:460px) and (max-width:768px){
+
+.footerHeadingBg{
+  width:100%;
+  height:15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footerHeading{
+    color: rgb(225, 226, 228);
+    font-size: 1.9em;
+    font-weight: 400;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+.footerLinksBg{
+    width:80%;
+    height:60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.linkChildBg{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s linear;
+    transform: translateY(0%);
+    opacity: 0;
+}
+
+.showLinkBg{
+    transform: translateY(0%);
+    opacity: 1;
+}
+.linkChildBg h1{
+    color: #b4b4b4;
+    font-size: 0.9em;
+    font-weight: 400;
+    height:30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+}
+
+.linkChildBg li{
+    color: #676767;
+    font-size: 0.8em;
+    font-weight: 400;
+    height:17.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.linkChildBg li:hover{
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right,#4d85d4,#ca1ef9);
+}
+
+.showFooterElement{
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.footerSocialBg{
+    width:80%;
+    height:15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contactBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:3%;
+}
+
+
+.logoBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoBox img{
+    width: 35%;
+    opacity: 0;
+}
+
+
+.showLogo{
+     animation: show-logo-in-footer linear 2s forwards;
+}
+@keyframes show-logo-in-footer {
+    0%{
+      opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.mediaBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 9%;
+}
+
+.contactBox h1{
+    color: #a8c4e0;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-width: 30%;
+    text-align: left;
+}
+
+.contactBox p{
+    color: #adafb1;
+    font-size: 0.7em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-width:30% ;
+    text-align:left;
+    cursor: pointer;
+    transition:all 0.3s linear;
+}
+.contactBox p:hover{
+    transform: scale(1.1);
+}
+
+.mediaBox svg{
+    color: #bbccdd;
+    font-size:0.9em;
+    cursor: pointer;
+    transition:all 0.3s linear;
+}
+
+.mediaBox svg:hover{
+    transform: scale(1.2);
+}
+
+.copyrightBar{
+    width:100%;
+    height:10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10%;
+    
+}
+
+.copyrightBar h1{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width:80%;
+    font-size: 0.7em;
+    color: #676767;
+    font-weight: 300;
+    gap:0.5%;
+}
+
+
+
+.copyRightPara{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 0.7em;
+    color: #676767;
+    font-weight: 300;
+    width:40%;
+    gap:1%;
+}
+
+
+
+.copyRightPara svg{
+    animation: blinking-heart 1s linear  infinite ;
+    
+    
+}
+
+@keyframes blinking-heart {
+    0%{
+        opacity: 0;
+    }
+    
+    50%{
+       opacity: 1;
+    }
+    
+    100%{
+        opacity:0;
+    }
+}
+
+}
+
+
+@media (max-width:460px){
+    .footerBg{
+    background-color: black;
+    height:140vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footerHeadingBg{
+  width:100%;
+  height:10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footerHeading{
+    color: rgb(225, 226, 228);
+    font-size: 1.3em;
+    font-weight: 400;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+.footerLinksBg{
+    width:100%;
+    height:75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:2%;
+    
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.linkChildBg{
+    width: 100%;
+    height: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 2s linear;
+    transform: translateY(0%);
+    opacity: 0;
+}
+
+.showLinkBg{
+    transform: translateY(0%);
+    opacity: 1;
+}
+.linkChildBg h1{
+    color: #b4b4b4;
+    font-size: 1em;
+    font-weight: 400;
+    height:30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin: 0;
+    min-width: 100%;
+}
+
+.linkChildBg li{
+    color: #676767;
+    font-size: 0.9em;
+    font-weight: 400;
+    height:17.5%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+}
+.linkChildBg li:hover{
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right,#4d85d4,#ca1ef9);
+}
+
+.showFooterElement{
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.footerSocialBg{
+    width:100%;
+    height:10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contactBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:3%;
+}
+
+
+.logoBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoBox img{
+    width: 30%;
+    opacity: 0;
+}
+
+
+.showLogo{
+     animation: show-logo-in-footer linear 2s forwards;
+}
+@keyframes show-logo-in-footer {
+    0%{
+      opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.mediaBox{
+    width:33.33%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+
+.contactBox h1{
+    color: #a8c4e0;
+    font-size: 0.7em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-width: 30%;
+    text-align: left;
+}
+
+.contactBox p{
+    color: #adafb1;
+    font-size: 0.7em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-width:30% ;
+    text-align:left;
+    cursor: pointer;
+    transition:all 0.3s linear;
+}
+.contactBox p:hover{
+    transform: scale(1.1);
+}
+
+.mediaBox svg{
+    color: #bbccdd;
+    font-size:0.9em;
+    cursor: pointer;
+    transition:all 0.3s linear;
+}
+
+.mediaBox svg:hover{
+    transform: scale(1.2);
+}
+
+.copyrightBar{
+    width:100%;
+    height:5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:7%;
+
+}
+
+.copyrightBar h1{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width:80%;
+    font-size: 0.7em;
+    color: #676767;
+    font-weight: 300;
+    gap:1%;
+}
+
+
+
+.copyRightPara{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 0.7em;
+    color: #676767;
+    font-weight: 300;
+    width:40%;
+    gap:2%;
+}
+
+
+
+.copyRightPara svg{
+    animation: blinking-heart 1s linear  infinite ;
+    
+    
+}
+
+@keyframes blinking-heart {
+    0%{
+        opacity: 0;
+    }
+    
+    50%{
+       opacity: 1;
+    }
+    
+    100%{
+        opacity:0;
+    }
+}
+
+}

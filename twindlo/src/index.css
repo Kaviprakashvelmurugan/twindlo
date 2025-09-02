@@ -1,0 +1,15 @@
+*{
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+}
+
+body {
+  margin: 0;
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

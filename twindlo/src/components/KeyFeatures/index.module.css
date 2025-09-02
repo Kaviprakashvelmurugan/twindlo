@@ -1,0 +1,3154 @@
+button:focus {
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent; /* For iOS Safari */
+  -webkit-focus-ring-color: transparent;    /* For iOS focus ring */
+  outline: none;
+}
+
+button:active{
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent; /* For iOS Safari */
+  -webkit-focus-ring-color: transparent;    /* For iOS focus ring */
+
+}
+
+
+
+
+
+.keyfeaturesBg{
+   width:100%;
+   height:700px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items:center;
+   margin: 150px 0px 150px 0px;
+ 
+
+}
+.keyfeaturesContent{
+    width:90%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
+}
+
+.keyfeaturesHeader{
+    width:100%;
+    height:25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    overflow: hidden;
+}
+
+
+.keyfeaturesHeading{
+    font-size: 35px;
+    color: rgb(72, 72, 72);
+    font-weight: 500;
+    width:65%;
+    margin-left: 5%;
+    line-height:1.2em;
+    transform: translateY(80%);
+    transition: all 1s ease-in-out;
+    opacity: 0;
+
+}
+
+.show-key-features-heading{
+    opacity:1;
+    transform: translateY(0%);
+   
+}
+.keyfeaturesCta{
+    width:10%;
+    height: 25%;
+    background-color: rgb(27, 27, 27);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    color: aliceblue;
+    margin-right: 5%;
+    
+}
+
+.keyfeaturesDetailsBox{
+    width:100%;
+    height:70%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+   
+  
+}
+
+.featureButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    height: 100%;
+    width:35%;
+    gap:5%;
+
+}
+
+.featureExplainer{
+    width:65%;
+    height:100%;
+    transition: transform 0.4s ease-in-out;
+   
+}
+
+.matchRivalsBox{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.matchRivalsBox1{
+    width:50%;
+    height: 100%;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.matchRivalsBox1 img{
+    width:90%;
+    border-radius: 10px;
+}
+
+
+.matchRivalsBox2{
+    width:50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left:5%;
+ 
+}
+
+
+.matchRivalsBox2 h1{
+    width:85%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,#c825e8,#328de3,#1709b3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+
+}
+
+.matchRivalsBox2 h2{
+    width:85%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: #3d3d3dfb;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.matchRivalsBox2 p{
+    width:85%;
+    height: 50%;
+  
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    line-height: 1.2em;
+
+}
+
+.matchRivalsBox2 button{
+    width:55%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: linear-gradient(to right,#487ce5,#1709b3);
+    border:none;
+    border-radius: 5px;
+}
+
+
+
+
+.aiChallengesCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    height:100%;
+
+  
+}
+
+.teekHeader{
+    width:90%;
+    height:30%;
+    border-radius: 10px;
+    border: none;
+    margin-left: 3%;
+    background-color: #000;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.teekLogo{
+    width:15%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.teekNameAndSlogan{
+    width:30%;
+    height:100%;
+    margin:0;
+    padding: 0;
+  
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.teekLogo img{
+  width:65%;
+  animation:logoSpinner 9s infinite linear;
+}
+
+@keyframes logoSpinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.teekNameAndSlogan h1{
+    font-size: 30px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    background-image: linear-gradient(270deg,#2fc9e5,#6a68eb,#f713f7);
+    -webkit-text-fill-color: transparent;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.teekNameAndSlogan p{
+    color: rgb(200, 203, 207);
+    font-size: 11px;
+    margin-top:2px;
+}
+
+.teekContentParent{
+    width:90%;
+    height:60%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+.teekInfoCard{
+    width:47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.teekInfoCard img{
+    width:35%;
+    border:none;
+    margin: 0 4% 0 0 ; 
+}
+
+.teekInfoCard h1{
+    font-size: 18px;
+    color: #000;
+    padding: 0;
+    font-weight: 600;
+    margin-bottom:4%; 
+}
+
+.teekInfoCard p{
+    font-size: 1em;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    margin: 0;
+    padding:0;
+    width:90%;
+    line-height: 1.2em;
+}
+.teekBulletsCard{
+    width:53%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.teekBulletsCard li{
+    width:100%;
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+    color: #242424;
+    font-size: 15px;
+}
+
+.teekBulletsCard li img{
+    width:4%;
+}
+
+
+
+.battleTaskCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+
+}
+
+.battleTaskContent{
+    width:90%;
+    height:85%;
+     background-image: linear-gradient(to right,#8a74d8,#144be5);
+     margin-left: 3%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.battleTaskContent1{
+    height:95%;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.battleTaskContent1 img{
+    width:75%;
+    padding: 0;
+    margin: 0;
+
+}
+.battleTaskContent1 h1{
+    font-size: 1.7em;
+    text-align: center;
+    font-weight:bolder !;
+    color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.battleTaskContent1 p{
+    color: #efeff0;
+    font-size: 1em;
+}
+
+
+.taskCtaBg{
+   width:55%;
+   height: 10%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 2px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite;
+
+}
+
+.taskCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+@keyframes spin-border{
+
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+    
+}
+
+.battleTaskContent2{
+    height:85%;
+    width:45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+}
+
+
+
+.streaksStatsCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.streaksStatsCardContent{
+    height: 85%;
+    width: 90%;
+    margin-left: 2.5%;
+    background-color: #000;
+    border-radius:12px;
+    display: flex;
+}
+
+
+.streaksStatsCardContent1{
+   width:50%;
+   height:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.streaksStatsCardContent2{
+   width:50%;
+   height:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+.pinkBoxstreakCard{
+    background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1754536860/1000_uabcdj.png');
+    width:75%;
+    border-radius: 10px;
+    height:75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.pinkBoxstreakCard img{
+    width: 80%;
+    margin-top: 5%;
+    animation: streak-card 1s linear forwards;
+    opacity: 0;
+    margin-bottom: 5%;
+}
+
+@keyframes streak-card {
+    0%{
+      opacity: 0;
+    }
+    100%{
+     opacity: 1;
+    }
+}
+
+
+.streakPointsCard{
+   
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.streakPointsCard h1{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 20px 0 0 0;
+    animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard p{
+    color: #edecec;
+    font-size: 0.8em;
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    text-indent: 1em;
+    text-align: justify;
+    hyphens: auto;
+    line-break: auto;
+    line-height: 1.5;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button{
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 300;
+    margin: 20px 0 0 0;
+    background-color: transparent;
+    width: 50%;
+    height: 30px;
+    border: 1px solid #fafafa;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button:hover{
+    color: #1828d1;
+    
+    background-color: #fff;
+    
+}
+.paperCard{
+   width:100%;
+   height:60%;
+   position: relative;
+}
+.paperImage{
+   position: absolute;
+   width:85%;
+   height: 100%;
+   top:-50%;
+   left:50%;
+   transform:translate(-50%);
+   z-index: 0;
+   animation: paper-drop 1s linear forwards;
+}
+
+@keyframes paper-drop {
+    0%{
+       top:-50%; 
+       opacity: 1;
+    }
+    50%{
+        top:-25%;
+        opacity: 1;
+    }
+    100%{
+        top:-4%;
+        opacity: 1;
+    }
+}
+
+.paperHeading{
+    top:16%;
+    width:60%;
+    left:20%;
+    z-index: 1;
+    font-size: 20px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperHeading span{
+    font-weight: 600;
+}
+.paperPara{
+    top:40%;
+    width:65%;
+    left:20%;
+    z-index: 1;
+    font-size: 12px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+@keyframes paper-texts {
+    0%{
+
+    }
+}
+.paperCta{
+    position: absolute;
+    bottom:25%;
+    left: 20%;
+    background-color: transparent;
+    border:1px solid #000;
+    border-radius: 5px;
+    width: 22%;
+    height:11%;
+    font-size: 10px;
+    transition: background 0.5s ease-in-out,color 0.5s ease-in-out;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperCta:hover{
+     background-color: #000;
+     color: #e8e6e6;
+}
+
+@keyframes paper-texts {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.leaderBoardBtnCardHome{
+    width:100%;
+    height:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.leaderBoardCtaBg{
+   width:50%;
+   height: 25%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 1px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite, paper-texts 3s linear forwards;
+
+}
+
+.leaderBoardCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #000;
+  color:#ffff;
+  font-size:0.7em;
+  letter-spacing: 1px;
+  transition: background 0.5s linear;
+   
+}
+.leaderBoardCtaBg button:hover{
+   background-color:transparent;
+}
+@keyframes spin-border{
+
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+    
+}
+.moveRight{
+  display: none;
+}
+
+.moveLeft{
+     display: none;
+}
+
+@media(min-width:460px) and (max-width:767px){
+  .keyfeaturesBg{
+   width:100%;
+   height:500px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items:center;
+   margin: 150px 0px 150px 0px;
+
+  
+
+}
+.keyfeaturesContent{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyfeaturesHeader{
+    width:100%;
+    height:20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    overflow: hidden;
+
+ 
+}
+
+.keyfeaturesHeading{
+    font-size: 15px;
+    color: rgb(72, 72, 72);
+    font-weight: 500;
+    width:60%;
+    margin-left: 4%;
+    line-height:1.2em;
+    transform: translateY(80%);
+    transition: all 1s ease-in-out;
+    opacity: 0;
+
+}
+
+.show-key-features-heading{
+    opacity:1;
+    transform: translateY(0%);
+   
+}
+.keyfeaturesCta{
+    width:20%;
+    height: 35%;
+    background-color: rgb(27, 27, 27);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    color: aliceblue;
+    margin-right: 5%;
+    font-size:0.7em;
+    
+}
+
+.keyfeaturesDetailsBox{
+    width:100%;
+    height:80%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+  
+}
+
+.featureButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    height: 20%;
+    width:90%;
+    gap:5%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+ 
+ 
+
+}
+
+
+.featureButtons::-webkit-scrollbar{
+    display: none;
+}
+.featureExplainer{
+    width:100%;
+    height:80%;
+    transition: transform 0.4s ease-in-out;
+    
+}
+
+.matchRivalsBox{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+  
+
+}
+
+.matchRivalsBox1{
+    width:50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.matchRivalsBox1 img{
+    width:70%;
+    border-radius: 10px;
+}
+
+
+.matchRivalsBox2{
+    width:50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left:5%;
+ 
+}
+  
+.matchRivalsBox2 h1{
+    width:85%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,#c825e8,#328de3,#1709b3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1em;
+ 
+
+}
+
+.matchRivalsBox2 h2{
+    width:85%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: #3d3d3dfb;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.matchRivalsBox2 p{
+    width:85%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    line-height: 1.2em;
+    font-size: 0.9em;
+
+}
+
+.matchRivalsBox2 button{
+    width:40%;
+    height: 10%;
+    margin-top:10px;
+    padding: 0;
+    color: white;
+    background-image: linear-gradient(to right,#487ce5,#1709b3);
+    border:none;
+    border-radius: 5px;
+    font-size: 0.6em;
+}
+ 
+.aiChallengesCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    align-items: center;
+  
+}
+
+.teekHeader{
+    width:90%;
+    height:30%;
+    border-radius: 10px;
+    border: none;
+    margin-left: 0;
+    background-color: #000;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.teekLogo{
+    width:12%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.teekNameAndSlogan{
+    width:30%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.teekLogo img{
+  width:80%;
+  animation:logoSpinner 9s infinite linear;
+}
+
+@keyframes logoSpinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.teekNameAndSlogan h1{
+    font-size: 18px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    background-image: linear-gradient(270deg,#2fc9e5,#6a68eb,#f713f7);
+    -webkit-text-fill-color: transparent;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.teekNameAndSlogan p{
+    color: rgb(200, 203, 207);
+    font-size: 8px;
+    margin-top:2px;
+}
+
+.teekContentParent{
+    width:90%;
+    height:70%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.teekInfoCard{
+    width:45%;
+    height:80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    
+
+}
+.teekInfoCard img{
+    width:30%;
+    border:none;
+    margin:0;
+}
+
+.teekInfoCard h1{
+    font-size: 0.8em;
+    color: #000;
+    padding: 0;
+    font-weight: 600;
+    margin:0;
+}
+
+.teekInfoCard p{
+    font-size: 0.7em;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    margin: 0;
+    padding:0;
+    width:90%;
+    line-height: 1.2em;
+}
+.teekBulletsCard{
+    width:50%;
+    height:80%;
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.teekBulletsCard li{
+    width:100%;
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+    color: #242424;
+    font-size: 0.6em;
+}
+
+.teekBulletsCard li img{
+    width:4%;
+}
+
+.battleTaskCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.battleTaskContent{
+    width:95%;
+    height:100%;
+     background-image: linear-gradient(to right,#8a74d8,#144be5);
+     margin-left: 0%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.battleTaskContent1{
+    height:90%;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.battleTaskContent1 img{
+    width:65%;
+    padding: 0;
+    margin: 0;
+
+}
+.battleTaskContent1 h1{
+    font-size: 1.3em;
+    text-align: center;
+    font-weight:bolder !;
+    color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.battleTaskContent1 p{
+    color: #efeff0;
+    font-size: 0.8em;
+}
+
+
+.taskCtaBg{
+   width:45%;
+   height: 15%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 2px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite;
+  
+}
+
+.taskCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.7em;
+}
+
+@keyframes spin-border{
+
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+    
+}
+
+.battleTaskContent2{
+    height:80%;
+    width:45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+}
+
+
+.streaksStatsCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.streaksStatsCardContent{
+    height: 100%;
+    width: 90%;
+    margin-left: 0%;
+    background-color: #000;
+    border-radius:12px;
+    display: flex;
+}
+
+
+.streaksStatsCardContent1{
+   width:50%;
+   height:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.streaksStatsCardContent2{
+   width:50%;
+   height:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+.pinkBoxstreakCard{
+    background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1754536860/1000_uabcdj.png');
+    width:85%;
+    border-radius: 10px;
+    height:85%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pinkBoxstreakCard img{
+    width: 80%;
+    margin-top: 0%;
+    animation: streak-card 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes streak-card {
+    0%{
+      opacity: 0;
+    }
+    100%{
+     opacity: 1;
+    }
+}
+
+
+.streakPointsCard{
+   
+    width:70%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    list-style-type: none;
+    padding-left: 0;
+
+}
+
+.streakPointsCard h1{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin:10px 0 0 0;
+    animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard p{
+    color: #edecec;
+    font-size: 0.8em;
+    font-weight: 300;
+    margin:10px 0 0 0;
+    text-indent: 1em;
+    text-align: justify;
+    hyphens: auto;
+    line-break: auto;
+    line-height: 1.5;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button{
+    color: #fff;
+    font-size: 0.5em;
+    font-weight: 300;
+    margin:10px 0 0 0;
+    background-color: transparent;
+    width: 50%;
+    height: 25px;
+    border: 1px solid #fafafa;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button:hover{
+    color: #1828d1;
+
+    background-color: #fff;
+    
+}
+.paperCard{
+   width:100%;
+   height:60%;
+   position: relative;
+}
+.paperImage{
+   position: absolute;
+   width:90%;
+   height: 100%;
+   top:-50%;
+   left:50%;
+   transform:translate(-50%);
+   z-index: 0;
+   animation: paper-drop 1s linear forwards;
+}
+
+@keyframes paper-drop {
+    0%{
+       top:-50%; 
+       opacity: 1;
+    }
+    50%{
+        top:-25%;
+        opacity: 1;
+    }
+    100%{
+        top:-4%;
+        opacity: 1;
+    }
+}
+
+.paperHeading{
+    top:10%;
+    width:70%;
+    left:20%;
+    z-index: 1;
+    font-size: 0.8em;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperHeading span{
+    font-weight: 600;
+}
+.paperPara{
+    top:30%;
+    width:70%;
+    left:20%;
+    z-index: 1;
+    font-size: 0.7em;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+@keyframes paper-texts {
+    0%{
+
+    }
+}
+.paperCta{
+    position: absolute;
+    bottom:25%;
+    left: 20%;
+    background-color: transparent;
+    border:1px solid #000;
+    border-radius: 3px;
+    width: 22%;
+    height:11%;
+    font-size: 0.4em;
+    transition: background 0.5s ease-in-out,color 0.5s ease-in-out;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperCta:hover{
+     background-color: #000;
+     color: #e8e6e6;
+}
+
+@keyframes paper-texts {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.leaderBoardBtnCardHome{
+    width:100%;
+    height:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.leaderBoardCtaBg{
+   width:50%;
+   height: 25%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 1px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite, paper-texts 3s linear forwards;
+
+}
+
+.leaderBoardCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #000;
+  color:#ffff;
+  font-size:0.5em;
+  letter-spacing: 1px;
+  transition: background 0.5s linear;
+   
+}
+.leaderBoardCtaBg button:hover{
+   background-color:transparent;
+}
+@keyframes spin-border{
+
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.moveLeft{
+   position: absolute;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   width:25%;
+   height:20%;
+   font-size:25px;
+   color:#757575;
+   background-image:linear-gradient(to right,#ffffff,#ffffff,#ffffff,#ffffff,#ffffffe6,#ffffffb0,#ffffff37,#ffffff00);
+   right:0;;
+   left:0;
+   top:0;
+   margin: 0;
+   padding:0 0 0 10px;
+   cursor: pointer;
+}
+.moveRight{
+   position: absolute;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: center;
+   width:25%;
+   height:20%;
+   font-size: 25px;
+   color:#757575;
+   background-image:linear-gradient(to left ,#ffffff,#ffffff,#ffffff,#ffffff,#ffffffe6,#ffffffb0,#ffffff37,#ffffff00);
+ 
+   right:0;
+   top:0;
+   margin: 0;
+   padding:0 10px 0 0;
+   cursor: pointer;
+} 
+}
+
+
+@media(min-width:768px) and (max-width:1350px){
+    
+  .keyfeaturesBg{
+   width:100%;
+   height:700px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items:center;
+   margin: 150px 0px 150px 0px;
+
+
+}
+.keyfeaturesContent{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.keyfeaturesHeader{
+    width:100%;
+    height:20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    overflow: hidden;
+   
+    
+}
+
+.keyfeaturesHeading{
+    font-size: 24px;
+    color: rgb(72, 72, 72);
+    font-weight: 500;
+    width:60%;
+    margin-left: 5%;
+    line-height:1.2em;
+    transform: translateY(80%);
+    transition: all 1s ease-in-out;
+    opacity: 0;
+
+}
+
+.show-key-features-heading{
+    opacity:1;
+    transform: translateY(0%);
+   
+}
+.keyfeaturesCta{
+    width:20%;
+    height: 25%;
+    background-color: rgb(27, 27, 27);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    color: aliceblue;
+    margin-right: 5%;
+    
+}
+.keyfeaturesDetailsBox{
+    width:100%;
+    height:80%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    
+}
+
+.featureButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    height: 20%;
+    width:90%;
+    gap:5%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+}
+
+.featureExplainer{
+    width:80%;
+    height:80%;
+    transition: transform 0.4s ease-in-out;
+    padding: 0%;
+    
+}
+
+.matchRivalsBox{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.matchRivalsBox1{
+    width:50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.matchRivalsBox1 img{
+    width:90%;
+    border-radius: 10px;
+}
+
+
+.matchRivalsBox2{
+    width:50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left:5%;
+ 
+}
+
+
+.matchRivalsBox2 h1{
+    width:85%;
+    height: 7%;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,#c825e8,#328de3,#1709b3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.4em;
+ 
+
+}
+
+.matchRivalsBox2 h2{
+    width:85%;
+    height: 7%;
+    margin: 0;
+    padding: 0;
+    color: #3d3d3dfb;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.matchRivalsBox2 p{
+    width:85%;
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    line-height: 1.2em;
+    font-size: 0.8em;
+
+}
+
+.matchRivalsBox2 button{
+    width:45%;
+    height: 8%;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: linear-gradient(to right,#487ce5,#1709b3);
+    border:none;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+
+
+.aiChallengesCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    
+    align-items: center;
+  
+}
+
+.teekHeader{
+    width:90%;
+    height:30%;
+    border-radius: 10px;
+    border: none;
+    background-color: #000;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+     margin: 0;
+}
+
+
+
+.teekLogo{
+    width:15%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.teekNameAndSlogan{
+    width:30%;
+    height:100%;
+    margin:0;
+    padding: 0;
+  
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.teekLogo img{
+  width:65%;
+  animation:logoSpinner 9s infinite linear;
+}
+
+@keyframes logoSpinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.teekNameAndSlogan h1{
+    font-size: 30px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    background-image: linear-gradient(270deg,#2fc9e5,#6a68eb,#f713f7);
+    -webkit-text-fill-color: transparent;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.teekNameAndSlogan p{
+    color: rgb(200, 203, 207);
+    font-size: 11px;
+    margin-top:2px;
+}
+
+.teekContentParent{
+    width:90%;
+    height:70%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+.teekInfoCard{
+    width:47%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.teekInfoCard img{
+    width:30%;
+    border:none;
+    margin: 0 4% 0 0 ; 
+}
+
+.teekInfoCard h1{
+    font-size: 17px;
+    color: #000;
+    padding: 0;
+    font-weight: 600;
+    margin-bottom:4%; 
+}
+
+.teekInfoCard p{
+    font-size: 0.8em;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    margin: 0;
+    padding:0;
+    width:90%;
+    line-height: 1.2em;
+}
+.teekBulletsCard{
+    width:53%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.teekBulletsCard li{
+    width:100%;
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+    color: #242424;
+    font-size: 13px;
+}
+
+.teekBulletsCard li img{
+    width:3%;
+}
+
+
+
+.battleTaskCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    
+
+}
+
+.battleTaskContent{
+    width:100%;
+    height:90%;
+     background-image: linear-gradient(to right,#8a74d8,#144be5);
+     margin-left: 0%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.battleTaskContent1{
+    height:90%;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.battleTaskContent1 img{
+    width:65%;
+    padding: 0;
+    margin: 0;
+
+}
+.battleTaskContent1 h1{
+    font-size: 1.7em;
+    text-align: center;
+    font-weight:bolder !;
+    color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.battleTaskContent1 p{
+    color: #efeff0;
+    font-size: 1em;
+}
+
+
+.taskCtaBg{
+   width:50%;
+   height: 10%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 2px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite;
+
+}
+
+.taskCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+
+
+.streaksStatsCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.streaksStatsCardContent{
+    height: 90%;
+    width: 100%;
+    margin-left: 0;
+    background-color: #000;
+    border-radius:12px;
+    display: flex;
+}
+
+
+.streaksStatsCardContent1{
+   width:50%;
+   height:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.streaksStatsCardContent2{
+   width:50%;
+   height:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+.pinkBoxstreakCard{
+    background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1754536860/1000_uabcdj.png');
+    width:85%;
+    border-radius: 10px;
+    height:75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pinkBoxstreakCard img{
+    width: 80%;
+    margin-top: 5%;
+    animation: streak-card 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes streak-card {
+    0%{
+      opacity: 0;
+    }
+    100%{
+     opacity: 1;
+    }
+}
+
+
+.streakPointsCard{
+   
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.streakPointsCard h1{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 20px 0 0 0;
+    animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard p{
+    color: #edecec;
+    font-size: 0.7em;
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    text-indent: 1em;
+    text-align: justify;
+    hyphens: auto;
+    line-break: auto;
+    line-height: 1.5;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button{
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 300;
+    margin: 20px 0 0 0;
+    background-color: transparent;
+    width: 50%;
+    height: 30px;
+    border: 1px solid #fafafa;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button:hover{
+    color: #1828d1;
+    
+    background-color: #fff;
+    
+}
+.paperCard{
+   width:100%;
+   height:60%;
+   position: relative;
+}
+.paperImage{
+   position: absolute;
+   width:85%;
+   height: 100%;
+   top:-50%;
+   left:50%;
+   transform:translate(-50%);
+   z-index: 0;
+   animation: paper-drop 1s linear forwards;
+}
+
+@keyframes paper-drop {
+    0%{
+       top:-50%; 
+       opacity: 1;
+    }
+    50%{
+        top:-25%;
+        opacity: 1;
+    }
+    100%{
+        top:-4%;
+        opacity: 1;
+    }
+}
+
+.paperHeading{
+    top:14%;
+    width:60%;
+    left:20%;
+    z-index: 1;
+    font-size: 18px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.1em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperHeading span{
+    font-weight: 600;
+}
+.paperPara{
+    top:40%;
+    width:65%;
+    left:20%;
+    z-index: 1;
+    font-size: 10px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+
+
+
+@media(min-width:1000px){
+    .matchRivalsBox1 img{
+    width:75%;
+    border-radius: 10px;
+}
+  .matchRivalsBox2 p{
+    width:85%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    line-height: 1.1em;
+    font-size: 1em;
+
+}
+.matchRivalsBox2 h1{
+    width:85%;
+    height: 7%;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,#c825e8,#328de3,#1709b3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.6em;
+ 
+
+}
+
+.matchRivalsBox2 h2{
+    width:85%;
+    height: 7%;
+    margin: 0;
+    padding: 0;
+    color: #3d3d3dfb;
+    font-size: 1.4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.matchRivalsBox2 button{
+    width:45%;
+    height: 8%;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: linear-gradient(to right,#487ce5,#1709b3);
+    border:none;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.teekInfoCard img{
+    width:35%;
+    border:none;
+    margin: 0 4% 0 0 ; 
+}
+
+.teekInfoCard h1{
+    font-size: 18px;
+    color: #000;
+    padding: 0;
+    font-weight: 600;
+    margin-bottom:4%; 
+}
+
+.teekInfoCard p{
+    font-size: 1em;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    margin: 0;
+    padding:0;
+    width:90%;
+    line-height: 1.2em;
+}
+.teekBulletsCard{
+    width:53%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.teekBulletsCard li{
+    width:100%;
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+    color: #242424;
+    font-size: 15px;
+}
+
+.teekBulletsCard li img{
+    width:4%;
+}
+
+
+.battleTaskCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    
+
+}
+
+.battleTaskContent{
+    width:90%;
+    height:100%;
+     background-image: linear-gradient(to right,#8a74d8,#144be5);
+     margin-left: 0%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.battleTaskContent1{
+    height:90%;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.pinkBoxstreakCard{
+    background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1754536860/1000_uabcdj.png');
+    width:85%;
+    border-radius: 10px;
+    height:85%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.streaksStatsCardContent{
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    background-color: #000;
+    border-radius:12px;
+    display: flex;
+}
+
+.paperHeading{
+    top:16%;
+    width:60%;
+    left:20%;
+    z-index: 1;
+    font-size: 20px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperHeading span{
+    font-weight: 600;
+}
+.paperPara{
+    top:40%;
+    width:65%;
+    left:20%;
+    z-index: 1;
+    font-size: 12px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.streakPointsCard h1{
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 20px 0 0 0;
+    animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard p{
+    color: #edecec;
+    font-size: 0.9em;
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    text-indent: 1.2em;
+    text-align: justify;
+    hyphens: auto;
+    line-break: auto;
+    line-height: 1.5;
+     animation: streak-card 1s linear forwards;
+}
+}
+.moveLeft{
+  display: none;
+}
+
+.moveRight{
+  display: none;
+}
+}
+
+
+
+
+
+
+
+@media(min-width:650px) and (max-width:767px){
+  .featureButtons{
+    justify-content: center;
+  }
+}
+
+
+
+
+
+@media (max-width:460px){
+  
+  .keyfeaturesBg{
+   width:100%;
+   height:1000px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items:center;
+   margin: 150px 0px 150px 0px;
+
+}
+.keyfeaturesContent{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.keyfeaturesHeader{
+    width:100%;
+    height:10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    overflow: hidden;
+}
+
+
+.keyfeaturesHeading{
+    font-size: 15px;
+    color: rgb(72, 72, 72);
+    font-weight: 500;
+    width:70%;
+    line-height:1.2em;
+    transform: translateY(80%);
+    transition: all 1s ease-in-out;
+    opacity: 0;
+
+}
+
+.show-key-features-heading{
+    opacity:1;
+    transform: translateY(0%);
+   
+}
+.keyfeaturesCta{
+    width:25%;
+    height: 30%;
+    font-weight: 300;
+    background-color: rgb(27, 27, 27);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    color: aliceblue;
+    margin-right: 5%;
+    font-size: 0.6em;
+    
+}
+.keyfeaturesDetailsBox{
+    width:100%;
+    height:70%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+  
+}
+
+.featureButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    height: 15%;
+    width:90%;
+    gap:5%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+   
+    
+    
+}
+
+
+.featureButtons::-webkit-scrollbar{
+    display: none;
+}
+.featureExplainer{
+    width:100%;
+    height:85%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.moveLeft{
+   position: absolute;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   width:25%;
+   height:15%;
+   font-size:25px;
+   color:#757575;
+   background-image:linear-gradient(to right,#ffffff,#ffffff,#ffffff,#ffffff,#ffffffe6,#ffffffb0,#ffffff37,#ffffff00);
+   right:0;;
+   left:0;
+   top:0;
+   margin: 0;
+   padding:0 0 0 10px;
+   cursor: pointer;
+}
+.moveRight{
+   position: absolute;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: center;
+   width:25%;
+   height:15%;
+   font-size: 25px;
+   color:#757575;
+   background-image:linear-gradient(to left ,#ffffff,#ffffff,#ffffff,#ffffff,#ffffffe6,#ffffffb0,#ffffff37,#ffffff00);
+ 
+   right:0;
+   top:0;
+   margin: 0;
+   padding:0 10px 0 0;
+   cursor: pointer;
+} 
+
+.matchRivalsBox{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.matchRivalsBox1{
+    width:100%;
+    height: 50%;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.matchRivalsBox1 img{
+    width:70%;
+    border-radius: 10px;
+}
+
+
+.matchRivalsBox2{
+    width:100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0;
+ 
+}
+
+
+.matchRivalsBox2 h1{
+    width:85%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,#c825e8,#328de3,#1709b3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1em;
+ 
+
+}
+
+.matchRivalsBox2 h2{
+    width:85%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    color: #3d3d3dfb;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.matchRivalsBox2 p{
+    width:85%;
+    height: 50%;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    line-height: 1.2em;
+    font-size: 0.8em;
+    box-shadow: 2px 3px 5px #7b7b7b9c;
+    border-radius: 5px;
+
+
+}
+
+.matchRivalsBox2 button{
+    width:35%;
+    height: 12%;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: linear-gradient(to right,#487ce5,#1709b3);
+    border:none;
+    border-radius: 5px;
+    font-size: 0.6em;
+    align-self: flex-start;
+    margin-left: 8%;
+}
+
+
+
+
+ .aiChallengesCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+ 
+  
+}
+
+.teekHeader{
+    width:90%;
+    height:20%;
+    border-radius: 10px;
+    border: none;
+    margin-left: 0%;
+    background-color: #000;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.teekLogo{
+    width:15%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.teekNameAndSlogan{
+    width:30%;
+    height:100%;
+    margin:0;
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.teekLogo img{
+  width:75%;
+  animation:logoSpinner 9s infinite linear;
+  margin-right: 10px;
+}
+
+
+
+@keyframes logoSpinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.teekNameAndSlogan h1{
+    font-size: 20px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    background-image: linear-gradient(270deg,#2fc9e5,#6a68eb,#f713f7);
+    -webkit-text-fill-color: transparent;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.teekNameAndSlogan p{
+    color: rgb(200, 203, 207);
+    font-size: 8px;
+    margin-top:2px;
+}
+
+.teekContentParent{
+    width:90%;
+    height:80%;
+    margin-left: 0%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.teekInfoCard{
+    width:100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border:1px solid rgb(165, 165, 165);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 5%;
+}
+.teekInfoCard img{
+    width:35%;
+    border:none;
+    margin: 0 4% 0 0 ; 
+}
+
+.teekInfoCard h1{
+    font-size: 14px;
+    color: #000;
+    padding: 0;
+    font-weight: 600;
+    margin-bottom:4%; 
+}
+
+.teekInfoCard p{
+    font-size: 0.9em;
+    color:#868a8e;
+    text-align: justify;
+    line-break: auto;
+    text-indent: 1.5em;
+    margin: 0;
+    padding:0;
+    width:90%;
+    line-height: 1.2em;
+}
+.teekBulletsCard{
+    width:100%;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teekBulletsCard li{
+    width:90%;
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5%;
+    color: #242424;
+    font-size: 12px;
+}
+
+.teekBulletsCard li img{
+    width:4%;
+}
+
+.battleTaskCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+.battleTaskContent{
+    width:90%;
+    height:100%;
+    background-image: linear-gradient(to right,#8a74d8,#144be5);
+    margin-left: 0%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.battleTaskContent1{
+    height:50%;
+    width:95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+
+.battleTaskContent1 img{
+    width:80%;
+    padding: 0;
+    margin: 0;
+
+}
+.battleTaskContent1 h1{
+    font-size: 1.7em;
+    text-align: center;
+    font-weight:bolder !;
+    color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.battleTaskContent1 p{
+    color: #efeff0;
+    font-size: 0.9em;
+}
+
+
+.taskCtaBg{
+   width:50%;
+   height: 15%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 2px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite;
+
+}
+
+.taskCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+@keyframes spin-border{
+
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+    
+}
+
+.battleTaskContent2{
+    height:50%;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5%;
+}
+
+
+.streaksStatsCard{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.streaksStatsCardContent{
+    height: 100%;
+    width: 90%;
+    margin-left: 0;
+    background-color: #000;
+    border-radius:12px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.streaksStatsCardContent1{
+   width:100%;
+   height:50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   order: 2;
+}
+.streaksStatsCardContent2{
+   width:100%;
+   height:50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   order: 1;
+}
+.pinkBoxstreakCard{
+    background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1754536860/1000_uabcdj.png');
+    width:85%;
+    border-radius: 10px;
+    height:85%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.pinkBoxstreakCard img{
+    width: 80%;
+    margin-top: 5%;
+    animation: streak-card 1s linear forwards;
+    opacity: 0;
+    margin-bottom: 5%;
+}
+
+@keyframes streak-card {
+    0%{
+      opacity: 0;
+    }
+    100%{
+     opacity: 1;
+    }
+}
+
+
+.streakPointsCard{
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.streakPointsCard h1{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 20px 0 0 0;
+    animation: streak-card 1s linear forwards;
+    display: none;
+}
+
+.streakPointsCard p{
+    color: #edecec;
+    font-size: 0.8em;
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    text-indent: 1em;
+    text-align: justify;
+    hyphens: auto;
+    line-break: auto;
+    line-height: 1.5;
+     animation: streak-card 1s linear forwards;
+     
+}
+
+.streakPointsCard button{
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 300;
+    margin: 20px 0 0 0;
+    background-color: transparent;
+    width: 50%;
+    height: 30px;
+    border: 1px solid #fafafa;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+     animation: streak-card 1s linear forwards;
+}
+
+.streakPointsCard button:hover{
+    color: #1828d1;
+    
+    background-color: #fff;
+    
+}
+.paperCard{
+   width:100%;
+   height:80%;
+   position: relative;
+}
+.paperImage{
+   position: absolute;
+   width:90%;
+   height: 100%;
+   top:-50%;
+   left:50%;
+   transform:translate(-50%);
+   z-index: 0;
+   animation: paper-drop 1s linear forwards;
+}
+
+@keyframes paper-drop {
+    0%{
+       top:-50%; 
+       opacity: 1;
+    }
+    50%{
+        top:-25%;
+        opacity: 1;
+    }
+    100%{
+        top:-4%;
+        opacity: 1;
+    }
+}
+
+.paperHeading{
+    top:15%;
+    width:70%;
+    left:20%;
+    z-index: 1;
+    font-size: 17px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+.paperHeading span{
+    font-weight: 600;
+}
+.paperPara{
+    top:40%;
+    width:65%;
+    left:20%;
+    z-index: 1;
+    font-size: 12px;
+    color: #000;
+    font-weight: 300;
+    position: absolute;
+    line-height: 1.2em;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+}
+
+@keyframes paper-texts {
+    0%{
+
+    }
+}
+.paperCta{
+    position: absolute;
+    bottom:25%;
+    left: 20%;
+    background-color: transparent;
+    border:1px solid #000;
+    border-radius: 5px;
+    width: 22%;
+    height:11%;
+    font-size: 10px;
+    transition: background 0.5s ease-in-out,color 0.5s ease-in-out;
+    animation: paper-texts 3s linear forwards ;
+    opacity: 0;
+    display: none;
+}
+
+.paperCta:hover{
+     background-color: #000;
+     color: #e8e6e6;
+}
+
+@keyframes paper-texts {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.leaderBoardBtnCardHome{
+    width:100%;
+    height:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.leaderBoardCtaBg{
+   width:50%;
+   height: 35%;
+   background-image: linear-gradient(to right,#f00cd2,#08add2);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 1px;
+   border-radius: 6px;
+   background-size: 300% 300%;
+  animation: spin-border 2s linear infinite, paper-texts 3s linear forwards;
+
+}
+
+.leaderBoardCtaBg button{
+  width:100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #000;
+  color:#ffff;
+  font-size:0.6em;
+  letter-spacing: 1px;
+  transition: background 0.5s linear;
+   
+}
+.leaderBoardCtaBg button:hover{
+   background-color:transparent;
+}
+@keyframes spin-border{
+
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+    
+}
+
+
+@media (min-width:400px){
+ .matchRivalsBox1 img{
+    width:60%;
+    border-radius: 10px;
+}
+}
+}
+
+
+
+

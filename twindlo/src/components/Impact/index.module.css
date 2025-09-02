@@ -1,0 +1,122 @@
+
+.impactBg{
+    min-height:100px;
+    width:100%;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.impactContent{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+
+ .impactHeader{
+    width: 80%;
+ }
+ .impactHeaderHeading{
+    margin: 0;
+    padding: 0;
+    width:100%;
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: 500;
+    color: #000;
+}
+
+.impactHeader h1 span {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,#0e22b8,#095ed5);
+}
+
+.impacts{
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:2%;
+    margin-top: 70px;
+}
+
+.impact {
+    width: 250px;
+    height: 250px;
+    gap:5%;
+    margin-bottom: 2.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    transition: background 0.3s ease-in-out;
+    cursor:pointer;
+}
+
+
+.impact:hover{
+   background-color: #e0e0e0;
+   
+}
+
+.impactHeading{
+    margin:0;
+    padding: 0;
+    font-size: 3.5em;
+    font-weight: 600;
+    color: transparent;
+    background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;   
+}
+
+ .impact1{
+    background-image: linear-gradient(to right, rgb(36, 13, 163), rgb(230, 14, 249));
+ }
+
+.impact2{
+    background-image: linear-gradient(to right, rgb(163, 13, 83), rgb(14, 214, 249));
+}
+.impact3{
+    background-image: linear-gradient(to right, rgb(16, 13, 163), rgb(14, 206, 249));
+}
+.impact4{
+    background-image: linear-gradient(to right, rgb(13, 163, 63), rgb(14, 96, 249));
+}
+
+
+.impact label{
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+
+
+
+@media (max-width:768px) {
+    
+ .impactContent{
+    width: 80%;
+  }
+
+ .impactHeader{
+    width: 90%;
+  }
+
+  .impactHeaderHeading{
+    font-size: 2em;
+  }
+}
+
+
