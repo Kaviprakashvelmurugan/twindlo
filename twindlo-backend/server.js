@@ -92,12 +92,13 @@ const authentication = (req, res, next) => {
 
 twindlo.post('/signup', authentication ,async (request,response)=>{
 
-    const {email,password} = request.body
-    
+    const {email,password,isVerified} = request.body
+     const secretkey = 'insomnia'
+
     const checkExistingUser = 'SELECT * FROM users WHERE email=?'
     const [existingUser] = await db.execute(checkExistingUser,[email])
     const user = existingUser[0]
-    console.log(user)
+   
     if (existingUser.length>0){
         return response.status(400).json({
             result:'failed',
@@ -108,13 +109,16 @@ twindlo.post('/signup', authentication ,async (request,response)=>{
     const hashedPassword  =  await bcrypt.hash(password, 10)
     const addUserQuery  = 'INSERT INTO users (email,password) VALUES (?,?)';
 
+    const payLoad = {email,isVerified}
+    const jwtToken = jwt.sign(payLoad,secretkey)
     const [retrievedResponse] = await db.execute(addUserQuery,[email,hashedPassword])
-    
+
     response.status(200).json({
              result:'success',
-             entry:0,
-             message:'Api is working',
-             recievedData:retrievedResponse
+             success:true,
+             message:'User Account Creation Intiated',
+             jwtToken,
+             recievedData:user
     })
 })
 
@@ -124,8 +128,6 @@ twindlo.post('/signup', authentication ,async (request,response)=>{
 twindlo.post('/signin', authentication , async (request,response)=>{
 
     const {email,password} = request.body 
-    
-    console.log(password)
     const secretkey = 'insomnia'
     const signinQuery = 'SELECT * FROM users WHERE email=?'
     const [retrievedResponse] = await db.execute(signinQuery,[email])
@@ -155,5 +157,5 @@ twindlo.post('/signin', authentication , async (request,response)=>{
 
     const payLoad = {id:user.id,email}
     const jwtToken = jwt.sign(payLoad , secretkey)
-    return response.status(200).json({result:'success',message:'logged in successfully',jwtToken,entry:1,})
+    return response.status(200).json({result:'success',message:'logged in successfully',jwtToken,user})
 })

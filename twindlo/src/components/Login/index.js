@@ -1,4 +1,6 @@
 import {Component,createRef} from 'react'
+import {Navigate} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import Styles from './index.module.css'
 
 import { FaHome } from "react-icons/fa";
@@ -33,7 +35,7 @@ class Login extends Component{
    
   
    
-    state = { navTextIndex: 0, navTextPosition: 0, deleting: false, pause: false ,formType:'signin' , email:'',password:'' , loginStatusMessage:'Enter Your Credentials !'} 
+    state = { navTextIndex: 0, navTextPosition: 0, deleting: false, pause: false ,formType:'signin' , email:'',password:'' , loginStatusMessage:'Enter Your Credentials !' , canRedirect:false} 
 
 
 
@@ -96,11 +98,6 @@ class Login extends Component{
 
     }
 
-   hi = ()=>{
-       console.log('checking node modules commiting or not')
-   }
-
-
     usernameLabelRef = createRef()
     passwordLabelRef = createRef()
     navTextRef = createRef()
@@ -119,7 +116,7 @@ class Login extends Component{
     }
     
     
-    testing = async (event) =>{
+    authenticate = async (event) =>{
 
       event.preventDefault()
     
@@ -127,20 +124,21 @@ class Login extends Component{
 
       let   testApi = 'http://localhost:3000/signup'
 
-
-      if (formType==='signin'){
-         testApi = 'http://localhost:3000/signin'
-      }
-      
-      const options = {
+      let  options = {
         method:'POST',
         headers:{
             'content-type':'application/json',
         },
         body:JSON.stringify({
-          email,password
+          email,password,isVerified:false
         })
       }
+
+      if (formType==='signin'){
+         testApi = 'http://localhost:3000/signin'
+
+      }
+   
       
 
       try {
@@ -148,6 +146,12 @@ class Login extends Component{
          const data = await response.json()
          console.log(data)
          this.setState({loginStatusMessage:data.message})
+        
+         if (data.success){
+            console.log('yes')
+            Cookies.set('jwtToken',data.jwtToken,{expires:30});
+            this.setState({canRedirect:true})
+         }
       }
       
       catch (error) {
@@ -244,7 +248,10 @@ class Login extends Component{
     
     render(){
 
-        const {navTextIndex,navTextPosition, loginStatusMessage} = this.state
+        const {navTextIndex,navTextPosition, loginStatusMessage, canRedirect} = this.state
+        if (canRedirect){
+            return <Navigate to='/workspace' replace/>
+        }
         return (
             <div className={Styles.loginBg}>
                 <div className={Styles.loginNavBg}>
@@ -312,7 +319,7 @@ class Login extends Component{
                               </div>
                        </div>
 
-                       <form onSubmit= {this.testing} className={Styles.form}>
+                       <form onSubmit= {this.authenticate} className={Styles.form}>
                           {this.renderLoginForm()}
                        </form>
                    </div>
