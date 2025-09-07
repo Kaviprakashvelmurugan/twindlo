@@ -3,9 +3,19 @@ const express = require('express')
 const mysql = require('mysql2/promise')
 const cors = require('cors')
 
+const Resend = require('resend')
+const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
+
+dotenv.config()
+
 const twindlo = express()
 twindlo.use(express.json())
+twindlo.use(bodyParser.json())
 twindlo.use(cors())
+
+
+
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
@@ -36,6 +46,12 @@ let intializer = async () =>{
 
 
 intializer()
+
+
+
+const resend = new Resend(process.env.RESEND_API_KEY)
+
+let otpStore = {}
 
 
 
@@ -158,4 +174,161 @@ twindlo.post('/signin', authentication , async (request,response)=>{
     const payLoad = {id:user.id,email}
     const jwtToken = jwt.sign(payLoad , secretkey)
     return response.status(200).json({result:'success',message:'logged in successfully',jwtToken,user})
+})
+
+
+
+/// ONBOARDING QUESTIONS ///
+
+twindlo.get('/onboarding-questions',async (request,response)=>{
+
+const questions = [
+  // Section 1: Basic Info
+  { 
+    id: 1, 
+    field:'name',
+    questionText: "Full Name / Nickname", 
+    type: "text", 
+    required: true, 
+    subtext: "Hey! What should we call you in the Twindlo community?", 
+    placeholder: "e.g., Kavi / Kaviprakash" 
+  },
+  { 
+    id: 2, 
+    field:'location',
+    questionText: "Location (City / Country)", 
+    type: "text", 
+    required: true,  
+    subtext: "Where are you joining us from? This helps connect you with local buddies.", 
+    placeholder: "e.g., Chennai, India" 
+  },
+
+  // Section 2: Academic / Professional Background
+  { 
+    id: 3,
+    field :'educationLevel', 
+    questionText: "Education Level", 
+    type: "select", 
+    placeholder: "Select your education level",
+    options: ["High School", "Undergraduate", "Graduate", "Postgraduate", "Professional/Working"], 
+    required: true, 
+    subtext: "Your journey so far helps us suggest the right learning paths for you." 
+  },
+  { 
+    id: 4, 
+    field:'degree',
+    questionText: "Degree", 
+    type: "select", 
+    placeholder: "Select your degree",
+    options: ["B.Tech", "B.Sc", "M.Tech", "MBA", "PhD"], 
+    required: true, 
+    subtext: "Tell us your degree—it helps us match you with like-minded learners." 
+  },
+  { 
+    id: 5, 
+    field : 'department',
+    questionText: "Department / Major", 
+    type: "select", 
+    placeholder: "Select your department",
+    options: ["Computer Science", "Electronics", "Mechanical", "Civil", "Mathematics", "Physics", "Chemistry"], 
+    required: true, 
+    subtext: "Pick your department or major to help us connect you better." 
+  },
+  { 
+    id: 6,
+    field:'YearOfStudy', 
+    questionText: "Year of Study / Experience", 
+    type: "select", 
+    placeholder: "Select your year of study",
+    options: ["1st Year", "2nd Year", "3rd Year", "4th Year", "Graduate", "Professional",'10th Grade', '11th Grade','12th Grade'],
+    required: true, 
+    subtext: "Where are you at in your journey? This helps us tailor your experience." 
+  },
+
+  // Section 3: Interests & Goals
+  { 
+    id: 7, 
+    field:"whyJoining",
+    questionText: "Why are you joining Twindlo?", 
+    type: "select", 
+    placeholder: "Select your reason",
+    options: ["Find Study Buddies", "Learn New Skills", "Build Descipline", "Project Collaboration", "Project Management"], 
+    required: true, 
+    subtext: "Let us know your goal—this helps us guide you better!" 
+  },
+  { 
+    id: 8, 
+    field : 'CourseOfInterest',
+    questionText: "Subjects / Courses of Interest", 
+    type: "checkbox", 
+    options:[
+           // Computer / IT
+           "Python", "Java", "C++", "ReactJS", "NodeJS", "SQL", "Git",
+
+           // 🏗 Civil Engineering
+           "AutoCAD", "Revit", "StaadPro", "ArcGIS", "Survey", "BIM", "Matlab",
+
+             // ⚡ Mechanical / Electrical
+            "CATIA", "Ansys", "Simulink", "Fusion360", "Creo", "PLC", "VLSI",
+
+            // 📊 Business / Management
+           "Excel", "SPSS", "Tableau", "RStudio", "SEO", "FinTech", "SAP",
+
+             // 🔬 Science (Physics, Chem, Bio)
+            "Physics", "Chem", "Maths", "BioTech", "NanoTech", "Zoology", "Botany",
+
+             // 🩺 Medical / Health
+             "Anatomy", "Pharma", "Patho", "Physio", "Surgery", "Genetics", "Nursing",
+
+            // 🎨 Arts / Design / Media
+              "Drawing", "Sketch", "3DModel", "PhotoEdt", "FilmMkg", "Music", "Dance"
+       ] ,
+    required: true, 
+    subtext: "Pick your favorite subjects or skills you want to discuss with Your buddy." 
+  },
+  { 
+    id: 9,
+    field:"workStyle" ,
+    questionText: "Preferred Study / Work Style", 
+    type: "select", 
+    placeholder: "Select your study style",
+    options: ["Solo", "Group", "Timed Challenges", "Project-Based"], 
+    required: true, 
+    subtext: "How do you love to learn? Choose your style!" 
+  },
+
+  // Section 4: Account  type
+  { 
+    id: 10,
+    field:'accountType',
+    questionText: "What type of account would you like to create?", 
+    type: "select", 
+    placeholder: "Select your Account type",
+    options: ["public", 'private'], 
+    required: true, 
+    subtext: "Helps us to provide you the correct Environment" 
+  },
+  
+
+  // Section 5: Optional Social / Profile Info
+  { 
+    id: 11, 
+    field:"socialLink",
+    questionText: "GitHub / LinkedIn / Portfolio URL", 
+    type: "text", 
+    required: true, 
+    subtext: "Show off your work! Share your profiles if you’d like.", 
+    placeholder: "e.g., https://github.com/username" 
+  },
+
+];
+
+
+
+
+    response.status(200).json({
+      success:true,
+      result:'success',
+      onboardingQuestions:questions
+    })
 })

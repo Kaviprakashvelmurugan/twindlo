@@ -102,9 +102,9 @@ const elementObserver = new IntersectionObserver(entries=>{
 
          <div className='home-sticky-container'>
              <div className='sticky-box'>
-                  <p className='sticky-para ' id ='stickypara1'>CONNECT</p>
-                  <p className='sticky-para ' id ='stickypara2'>COLLABORATE</p>
-                  <p className='sticky-para ' id ='stickypara3'>ACHIEVE</p>
+                  <p className='sticky-para ' id ='stickypara1'>Connect</p>
+                  <p className='sticky-para ' id ='stickypara2'>Collaborate</p>
+                  <p className='sticky-para ' id ='stickypara3'>Achieve</p>
 
                    <p className='sticky-sub-para' id = 'stickysub'>{this.state.stickySubPara}</p>
              </div>

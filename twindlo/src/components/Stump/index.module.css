@@ -1,3 +1,8 @@
+*{
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+}
+
 .stumpBg{
     width:100%;
     height:100vh;
@@ -15,9 +20,138 @@
     transform: translate(-50%,-50%);
     background-color: #fff;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
 }
 
 
+.stumpQuesBox{
+  width: 90%;
+  height:60%;
+}
+
+.stumpTailBox{
+  width: 90%;
+  height:30%;
+  border:1px solid red;
+}
+
+.mailVerifyBox{
+  width: 80%;
+  height:80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.mailVerifyBoxHeader{
+  height:50%;
+  border:1px solid red;
+}
+
+.mailVerifyTailBox{
+height:50%;
+  border:1px solid red;
+}
+.mailVerifyHeading{
+  color: #000;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 0 0 30px 0;
+  animation: animate-stump-element  1s ease-in-out 1s forwards;
+   transform: translateY(10px);
+   opacity: 0;
+}
+
+@keyframes animate-stump-element {
+  0%{
+    transform: translateY(30);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.emailVerifyMain{
+   display: flex;
+   flex-direction: row;
+}
+
+
+
+.emailVerifyInputBox{
+    width:250px;
+    height: 60px;
+    border: none;
+    padding: 1px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #fc1af4,#2b3be6);
+   margin-bottom: 20px;
+   animation: animate-stump-element  1s ease-in-out forwards 1.5s;
+   transform: translateY(10px);
+   opacity: 0;
+}
+
+.emailVerifyInputBox input{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  border-radius: 10px;
+  color: #0f176e;
+  font-size: 1em;
+
+}
+
+
+
+.verifyStatusLoaderBox{
+  width:100px;
+  height: 60px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.verifyStatusLoaderBox video {
+  width: 50%;
+}
+.emailVerifyStatus{
+  margin: 0;
+  padding: 0;
+  font-size: 0.8em;
+  color: rgb(115, 115, 115);
+  font-weight: 400px;
+  margin-bottom: 10px;
+  animation: animate-stump-element  1s ease-in-out forwards 2s;
+   transform: translateY(10px);
+   opacity: 0;
+}
+
+.emailVerifyCta{
+  margin:0;
+  padding: 0;
+  width: 130px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  background-image: linear-gradient(to right,#082ae6,rgb(10, 153, 241));
+  animation: animate-stump-element  1s ease-in-out forwards 2.5s;
+   transform: translateY(10px);
+   opacity: 0;
+}
 /* Small devices (mobile) */
 @media (max-width: 480px) { 
    .stumpContent{

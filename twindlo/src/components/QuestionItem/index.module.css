@@ -1,0 +1,205 @@
+*{
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.questionItem{
+  width: 100%;
+  height:100%;
+}
+
+.headerBox {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.headerBox img{
+    width:8%;
+}
+.questionHeading{
+    margin:0 0 15px 0;
+    padding: 0;
+    color: #2b2b2b;
+    font-size: 1.1em;
+    font-weight: 500;
+   
+}
+
+.questionSubtext{
+    margin: 0 0 30px 0;
+    padding: 0;
+    color: #000;
+    font-size: 0.9em;
+    font-weight: 400;
+    color: rgb(179, 178, 178);
+}
+
+.inputBox{
+    width:40%;
+    height: 30%;
+    border: none;
+    padding: 1px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #fc1af4,#2b3be6);
+    margin-bottom: 40px;
+
+}
+
+.inputBox .textInput {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 10%;
+    color: #1b0e80;
+    font-size: 0.9em;
+}
+
+
+.inputBox .selectInput {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 10%;
+    color: #1b0e80;
+    font-size: 0.9em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: white url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") 
+                no-repeat right 20px center;
+    background-size: 25px; 
+    padding-right: 40px; 
+}
+
+
+
+
+.checkboxBox{
+     width:85%;
+     height: 40%;
+     margin-bottom: 30px;
+     position: relative;
+}
+
+.checkboxParent{
+   width:100%;
+   height:100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   overflow: auto;
+   scrollbar-width:none ;
+   
+}
+
+.checkboxParent label{
+    display: inline-block;
+     width:150px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right,#0c55df,#c962c3,#e021ea);
+    margin: 0 20px 20px 0 ;
+
+}
+
+
+svg{
+    padding:0;
+    margin:0;
+}
+
+.topArrow{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  position: absolute;
+  outline: none;
+  font-size: 1.1em;
+  color: #313131;
+  top:10px;
+  right: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+   transition:opacity 0.3s ease-in-out;
+}
+
+.bottomArrow{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  position: absolute;
+  outline:none;
+  font-size: 1.1em;
+  bottom: 10px;
+  right: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:opacity 0.3s ease-in-out;
+}
+
+.qustionCtaBox{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+.nextCta{
+    width:120px;
+    height: 40px;
+    border: none;
+    background-image: linear-gradient(to right,#082ae6,rgb(10, 153, 241));
+    text-align: center;
+    color: #fff;
+    font-size: 0.9em;
+    padding: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.backCta{
+    width:120px;
+    height: 40px;
+    border: 1px solid #082ae6;
+    background:transparent;
+    text-align: center;
+    color: #082ae6;
+    font-size: 0.9em;
+    padding: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.required{
+    color: #ffffff;
+    font-size: 0.6em;
+    margin-left: 10px;
+}
+
+.turnRed{
+    color: #d50a0a;
+}
+
+
+.hideArrow{
+    opacity: 0;
+}
+
