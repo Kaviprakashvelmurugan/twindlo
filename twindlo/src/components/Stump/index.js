@@ -3,7 +3,7 @@ import Styles from './index.module.css'
 import {useEffect,useState} from 'react'
 import Cookies from 'js-cookie'
 import {jwtDecode}  from 'jwt-decode'
-
+import { IoIosTimer } from "react-icons/io";
 
 const Stump = ()=>{
     
@@ -13,6 +13,9 @@ const Stump = ()=>{
     const [emailVerifyBox,setEmailVerifyBox] = useState(true)
     const [userEmail,setUserEmail] = useState('')
     const [isMailRecieved,setisMailRecieved] = useState(false)
+    const [waitTime,setWaitTime] = useState(25)
+    const [veirfyEntry,setVerifyEntry] = useState(false)
+
 
     useEffect(()=>{
         const jwtToken = Cookies.get('jwtToken')
@@ -91,6 +94,33 @@ const Stump = ()=>{
 
     console.log(answersObj)
 
+    let waitTimer;
+    const sendOtpAgain = () => {
+        clearInterval(waitTimer)
+        setisMailRecieved(false)
+        setWaitTime(25)
+    }
+
+    useEffect(()=>{
+       
+       if (isMailRecieved){
+            waitTimer = setInterval(()=>{
+            setWaitTime(prev=>{
+              if(prev>0){
+                return prev-1
+              }
+              else{
+                sendOtpAgain()
+                return 0
+              }
+            })
+           },1000);
+        }
+        return ()=>{
+            clearInterval(waitTimer)
+        }
+    },[isMailRecieved])
+
 
     const verifyEmailApi = async () => {
        const emailVerifyApi = 'http://localhost:3000/send-verify-email'
@@ -111,6 +141,7 @@ const Stump = ()=>{
         console.log('response data',responseData)
 
         if (response.ok){
+            setVerifyEntry(true)
             setisMailRecieved(true)
         }
        }
@@ -118,6 +149,9 @@ const Stump = ()=>{
         console.log(error)
        }
     }
+
+    
+
     return (
         <div className={Styles.stumpBg}>
            <div className={Styles.stumpContent}>
@@ -131,15 +165,18 @@ const Stump = ()=>{
                                               <input  onChange = {changeEmail} value = {userEmail} type='text'/>
                                             </div>
                                        </div>
-                                       {isMailRecieved && <div className={Styles.otpBox}>
+                                       {veirfyEntry===true && <div className={Styles.otpBox}>
                                          <input placeholder='Enter 6-digit OTP' type='text'/>
                                        </div>}
-
-                                       <button onClick = {verifyEmailApi} className={Styles.emailVerifyCta}>Send OTP</button>
+                                       <div className={Styles.emailButtons}>
+                                            <button disabled={isMailRecieved} onClick = {verifyEmailApi} className={Styles.emailSendCta}> {isMailRecieved ? <><IoIosTimer/> {`${waitTime}`}</>  :'Send OTP'}</button>
+                                            {veirfyEntry===true && <button onClick = {verifyEmailApi} className={Styles.emailVerifyCta}>Verify OTP</button>}
+                                        </div>
+                                       
                                    </div>
                                 
                                     <div className={Styles.mailVerifyTailBox}>
-
+                                     
                                     </div>
                                </div>
             }

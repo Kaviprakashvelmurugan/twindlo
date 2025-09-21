@@ -137,21 +137,6 @@ height:30%;
    opacity: 0;
 }
 
-.emailVerifyCta{
-  margin:0;
-  min-width: 120px;
-  text-align: center;
-  height: 40px;
-  border: none;
-  outline: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 7px;
-  background-image: linear-gradient(to right,#082ae6,rgb(10, 153, 241));
-  animation: animate-stump-element  1s ease-in-out forwards 2.5s;
-   transform: translateY(10px);
-   opacity: 0;
-}
 
 
 .otpBox{
@@ -175,6 +160,56 @@ height:30%;
 .otpBox input::placeholder{
   font-size: 0.8em;
   color: #969696;
+}
+
+.emailButtons{
+  display: flex;
+  gap: 10px;
+}
+
+
+.emailSendCta{
+  margin:0;
+  min-width: 120px;
+  text-align: center;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  background-image: linear-gradient(to right,#082ae6,rgb(10, 153, 241));
+  animation: animate-stump-element  1s ease-in-out forwards 1.5s;
+   transform: translateY(10px);
+   opacity: 0;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap:10px;
+}
+
+.emailSendCta:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.emailSendCta svg{
+  font-size: 1.2em;
+}
+.emailVerifyCta{
+  margin:0;
+  min-width: 120px;
+  text-align: center;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 7px;
+  background-image: linear-gradient(to right,#082ae6,rgb(10, 153, 241));
+  animation: animate-stump-element  1s ease-in-out forwards 1.5s;
+  transform: translateY(10px);
+  opacity: 0;
 }
 
 /* Small devices (mobile) */
