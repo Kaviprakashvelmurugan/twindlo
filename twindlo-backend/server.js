@@ -3,7 +3,6 @@ const express = require('express')
 const mysql = require('mysql2/promise')
 const cors = require('cors')
 
-const Resend = require('resend')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 
@@ -49,9 +48,11 @@ intializer()
 
 
 
+///Resend Setup///
+
+const {Resend} = require('resend') 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-let otpStore = {}
 
 
 
@@ -332,3 +333,32 @@ const questions = [
       onboardingQuestions:questions
     })
 })
+
+
+
+/// send verify email ///
+
+twindlo.post('/send-verify-email' , async (request,response)=>{
+   const {email} = request.body
+   const otp = Math.floor(Math.random()* 900000 + 10000)
+   try {
+       await resend.emails.send({
+        from: 'Twindlo Verify <verify@twindlo.com>',
+        to:email,
+        subject:'Your Twindlo OTP code',
+        html:`<p>Your OTP is <b>${otp}</b>. It will expire in 5 minutes.</p>`,
+      })
+
+      response.status(200).json({
+        result:'success',
+        success:true,
+        oneTimePassword:otp
+      })
+   }
+  catch(error){
+    console.log(error)
+    response.status(400).json({
+      result:'failed'
+    })
+  }
+}) 

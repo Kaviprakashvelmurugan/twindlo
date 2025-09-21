@@ -12,7 +12,7 @@ const Stump = ()=>{
     const [answersObj,updateAnswerObj] = useState({})
     const [emailVerifyBox,setEmailVerifyBox] = useState(true)
     const [userEmail,setUserEmail] = useState('')
-
+    const [isMailRecieved,setisMailRecieved] = useState(false)
 
     useEffect(()=>{
         const jwtToken = Cookies.get('jwtToken')
@@ -90,39 +90,58 @@ const Stump = ()=>{
     }
 
     console.log(answersObj)
+
+
+    const verifyEmailApi = async () => {
+       const emailVerifyApi = 'http://localhost:3000/send-verify-email'
+       const emailVerifyOptions = {
+        method:"POST",
+        headers : {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({  
+            email: userEmail
+        })
+       }
+
+       try{
+        const response = await fetch(emailVerifyApi,emailVerifyOptions)
+        const responseData = await response.json()
+        console.log('response',response)
+        console.log('response data',responseData)
+
+        if (response.ok){
+            setisMailRecieved(true)
+        }
+       }
+       catch(error){
+        console.log(error)
+       }
+    }
     return (
         <div className={Styles.stumpBg}>
            <div className={Styles.stumpContent}>
 
             {emailVerifyBox && <div className={Styles.mailVerifyBox}> 
                                    <div className={Styles.mailVerifyBoxHeader}>
-                                       <h1 className={Styles.mailVerifyHeading}>Verify Your Email</h1>
+                                       <h1 className={Styles.mailVerifyHeading}>Verify Your Email.</h1>
                                        <p className={Styles.emailVerifyStatus}>You can modify your mail!</p>
                                        <div className={Styles.emailVerifyMain}>
                                             <div className={Styles.emailVerifyInputBox}>
                                               <input  onChange = {changeEmail} value = {userEmail} type='text'/>
                                             </div>
-                                            <div className={Styles.verifyStatusLoaderBox}>
-                                               
-                                               <video autoPlay playsInline muted loop preload="metadata" aria-hidden="true"> 
-                                               <source src="https://res.cloudinary.com/djtbynnte/video/upload/v1757138781/LOADER-FOR-MAIL_mhqco5.mp4" type="video/mp4" />
-                                               Your browser does not support the video tag.</video>
-                                            </div>
-                                        </div>
+                                       </div>
+                                       {isMailRecieved && <div className={Styles.otpBox}>
+                                         <input placeholder='Enter 6-digit OTP' type='text'/>
+                                       </div>}
 
-                                      
-                                       <button className={Styles.emailVerifyCta}>Send OTP</button>
+                                       <button onClick = {verifyEmailApi} className={Styles.emailVerifyCta}>Send OTP</button>
                                    </div>
                                 
                                     <div className={Styles.mailVerifyTailBox}>
 
                                     </div>
-
-                                    
-
-
-
-                              </div>
+                               </div>
             }
 
             {!emailVerifyBox && <>
@@ -134,7 +153,6 @@ const Stump = ()=>{
                                   </div>
                                 </>
 }
-         
            </div>
         </div>
     )
