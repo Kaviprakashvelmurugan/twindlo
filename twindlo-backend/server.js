@@ -171,10 +171,14 @@ twindlo.post('/signin', authentication , async (request,response)=>{
             })
         )
     }
-
-    const payLoad = {id:user.id,email}
+     
+    const getIsVerified = 'SELECT isVerified FROM users WHERE email=?'
+    const [dbResponse] = await db.execute(getIsVerified,[email])
+    const {isVerified} = dbResponse[0]
+    console.log(isVerified)
+    const payLoad = {id:user.id,email,isVerified}
     const jwtToken = jwt.sign(payLoad , secretkey)
-    return response.status(200).json({result:'success',message:'logged in successfully',jwtToken,user})
+    return response.status(200).json({result:'success',message:'logged in successfully',jwtToken,user,success:true})
 })
 
 
@@ -361,4 +365,73 @@ twindlo.post('/send-verify-email' , async (request,response)=>{
       result:'failed'
     })
   }
+ 
 }) 
+
+
+/// OTP verification and user updation
+
+twindlo.post('/update-verify-status' , async (request,response)=>{
+  const secretkey = 'insomnia'
+  const {email,newMail,isVerified,answers} = request.body
+
+  const {CourseOfInterest,
+         YearOfStudy,
+         degree,
+         department,
+         educationLevel,
+         location,
+         name,
+         socialLink,
+         whyJoining,
+         accountType
+        } = answers
+
+  try{
+     await db.beginTransaction()
+
+     const userIdQuery = 'SELECT * From users WHERE email = ?'
+     const [userRow] = await db.execute(userIdQuery,[email])
+    
+     if (userRow.length==0){
+      db.rollback()
+      return response.status(400).json({message:'User Not Found',success:false})
+     }
+     const userId = userRow[0].id
+     console.log(userId)
+     ///* UPDATING IS_VERIFIED *///
+
+     const updateIsVerifiedQuery = 'UPDATE USERS  SET email = ? , isVerified = ?  WHERE email = ?'
+     const [dbResponse] = await db.execute(updateIsVerifiedQuery,[newMail,isVerified,email])
+     console.log('here',dbResponse.affectedRows)   
+     const payLoad = {email:newMail,isVerified}
+     const jwtToken = jwt.sign(payLoad,secretkey)
+     
+
+    ///* ADD PROFILE_DETAILS*///
+
+    const addProfileDetails = 'INSERT INTO USER_PROFILES (  user_id,username,location,education_level,degree,department,year_of_study,reason_to_join,account_type,github_link) VALUES (?,?,?,?,?,?,?,?,?,?);'
+    const [dbProfileDetialsResponse] = await db.execute(addProfileDetails,[userId,name,location,educationLevel,degree,department,YearOfStudy,whyJoining,accountType,socialLink,])
+    
+
+
+    /// INSERT INTERESTS ///
+    
+   
+    if(CourseOfInterest.length>0){
+      const values = CourseOfInterest.map(interest=>[userId,interest])
+      const addInterestsQuery = 'INSERT INTO user_interests (user_id,interest) VALUES ?'
+       await db.query(addInterestsQuery,[values])
+    }
+     
+
+    await db.commit()
+    response.status(200).json({message:'Updation Success', jwtToken})
+  }
+  catch(error){
+    console.log(error)
+     await db.rollback()
+    response.status(400).json({message:'Wrong OTP Has been Entered !'})
+  }
+
+})

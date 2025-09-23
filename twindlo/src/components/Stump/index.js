@@ -5,24 +5,27 @@ import Cookies from 'js-cookie'
 import {jwtDecode}  from 'jwt-decode'
 import { IoIosTimer } from "react-icons/io";
 
-const Stump = ()=>{
+const Stump = ({renderWithUpdate})=>{
     
     const [questions,setQuestions]  = useState([])
     const [currentQuestion,changeQuestion] = useState(0)
     const [answersObj,updateAnswerObj] = useState({})
-    const [emailVerifyBox,setEmailVerifyBox] = useState(true)
+    const [emailVerifyBox,setEmailVerifyBox] = useState(false)
     const [userEmail,setUserEmail] = useState('')
     const [isMailRecieved,setisMailRecieved] = useState(false)
     const [waitTime,setWaitTime] = useState(25)
     const [veirfyEntry,setVerifyEntry] = useState(false)
-
+    const [otp,setOtp] = useState(null)
+    const [otpFromApi,setOtpFromApi] = useState(null)
+    
 
     useEffect(()=>{
         const jwtToken = Cookies.get('jwtToken')
-        
+        console.log(jwtToken)
         if (jwtToken){
           const decodedJwt = jwtDecode(jwtToken)
           const email = decodedJwt.email
+          console.log(email)
           setUserEmail(email)
     }
     },[])
@@ -123,6 +126,7 @@ const Stump = ()=>{
 
 
     const verifyEmailApi = async () => {
+       setVerifyEntry(true)
        const emailVerifyApi = 'http://localhost:3000/send-verify-email'
        const emailVerifyOptions = {
         method:"POST",
@@ -141,15 +145,67 @@ const Stump = ()=>{
         console.log('response data',responseData)
 
         if (response.ok){
-            setVerifyEntry(true)
             setisMailRecieved(true)
+            setOtpFromApi(responseData.oneTimePassword)
         }
        }
        catch(error){
         console.log(error)
        }
     }
+    
+    const handleOtpTyping = event => {
+       setOtp(event.target.value)
+    }
 
+
+   
+    const verifyOTP = async () => {
+        console.log('yes')
+        if (otpFromApi){
+            const typedOtp = parseInt(otp)
+            console.log(otpFromApi===typedOtp)
+            if (otpFromApi===typedOtp){
+                console.log('yesss')
+               const jwtToken = Cookies.get('jwtToken')
+               let oldEmail;
+               if (jwtToken){
+                  let decodedJwt = jwtDecode(jwtToken)
+                  oldEmail = decodedJwt.email
+               }
+                const updateUserApi = 'http://localhost:3000/update-verify-status'
+                const options = {
+                   method:'POST',
+                   headers:{
+                    'Content-Type':'application/json'
+                   },
+                   body : JSON.stringify({
+                      email:oldEmail,
+                      newMail:userEmail,
+                      isVerified:true,
+                      answers:answersObj
+                   })
+                }
+                try {
+                      const response = await fetch(updateUserApi,options)
+                      const jsonResponse = await response.json()
+                      console.log(response)
+                      console.log(jsonResponse)
+                      if(response.ok){
+                        console.log(1)
+                        Cookies.set('jwtToken',jsonResponse.jwtToken,{expires:30})
+                        renderWithUpdate(true)
+                      }
+                }
+                catch(error){
+                    console.log(error)
+                }
+            }
+            else {
+                return null
+            }
+        }
+    }
     
 
     return (
@@ -166,11 +222,11 @@ const Stump = ()=>{
                                             </div>
                                        </div>
                                        {veirfyEntry===true && <div className={Styles.otpBox}>
-                                         <input placeholder='Enter 6-digit OTP' type='text'/>
+                                         <input onChange = {handleOtpTyping} placeholder='Enter 6-digit OTP' type='text'/>
                                        </div>}
                                        <div className={Styles.emailButtons}>
                                             <button disabled={isMailRecieved} onClick = {verifyEmailApi} className={Styles.emailSendCta}> {isMailRecieved ? <><IoIosTimer/> {`${waitTime}`}</>  :'Send OTP'}</button>
-                                            {veirfyEntry===true && <button onClick = {verifyEmailApi} className={Styles.emailVerifyCta}>Verify OTP</button>}
+                                            {veirfyEntry===true && <button onClick = {verifyOTP} className={Styles.emailVerifyCta}>Verify OTP</button>}
                                         </div>
                                        
                                    </div>
@@ -189,7 +245,7 @@ const Stump = ()=>{
                    
                                   </div>
                                 </>
-}
+           }        
            </div>
         </div>
     )
