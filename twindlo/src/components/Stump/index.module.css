@@ -48,14 +48,13 @@
 }
 
 .mailVerifyBoxHeader{
-  height:70%;
-  border:1px solid red;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.mailVerifyTailBox{
-height:30%;
-  border:1px solid red;
-}
+
 .mailVerifyHeading{
   color: #000;
   font-size: 1.2em;
@@ -110,21 +109,6 @@ height:30%;
 
 }
 
-
-
-.verifyStatusLoaderBox{
-  width:100px;
-  height: 60px;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.verifyStatusLoaderBox video {
-  width: 50%;
-}
 .emailVerifyStatus{
   margin: 0;
   padding: 0;
@@ -212,11 +196,24 @@ height:30%;
   opacity: 0;
 }
 
+.otpStatus{
+  color: #7e7c7c;
+  font-size: 0.7em;
+  margin-top: 20px;
+}
+
+.redOtpStatus{
+  color:rgb(214, 52, 52);
+}
+
+
+
+
 /* Small devices (mobile) */
 @media (max-width: 480px) { 
    .stumpContent{
     width:85%;
-    height: 85%;
+    height: 60%;
   }
 }
 
@@ -227,7 +224,7 @@ height:30%;
 @media (min-width: 481px) and (max-width: 768px) { 
 .stumpContent{
     width:80%;
-    height: 70%;
+    height: 60%;
 }
 }
 

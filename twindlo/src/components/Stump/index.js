@@ -7,18 +7,24 @@ import { IoIosTimer } from "react-icons/io";
 
 const Stump = ({renderWithUpdate})=>{
     
+
+    const otpStatusObj = {
+        initial:'',
+        failure:'Wrong OTP has been entered !',
+        sent:'OTP has been sent to your email!'
+    }
     const [questions,setQuestions]  = useState([])
     const [currentQuestion,changeQuestion] = useState(0)
     const [answersObj,updateAnswerObj] = useState({})
-    const [emailVerifyBox,setEmailVerifyBox] = useState(false)
+    const [emailVerifyBox,setEmailVerifyBox] = useState(true)
     const [userEmail,setUserEmail] = useState('')
     const [isMailRecieved,setisMailRecieved] = useState(false)
     const [waitTime,setWaitTime] = useState(25)
     const [veirfyEntry,setVerifyEntry] = useState(false)
     const [otp,setOtp] = useState(null)
     const [otpFromApi,setOtpFromApi] = useState(null)
+    const [otpStatus,setOtpStatus] = useState(otpStatusObj.initial)
     
-
     useEffect(()=>{
         const jwtToken = Cookies.get('jwtToken')
         console.log(jwtToken)
@@ -127,6 +133,8 @@ const Stump = ({renderWithUpdate})=>{
 
     const verifyEmailApi = async () => {
        setVerifyEntry(true)
+       setOtpStatus(otpStatusObj.sent)
+       setOtp('')
        const emailVerifyApi = 'http://localhost:3000/send-verify-email'
        const emailVerifyOptions = {
         method:"POST",
@@ -202,7 +210,7 @@ const Stump = ({renderWithUpdate})=>{
                 }
             }
             else {
-                return null
+                setOtpStatus(otpStatusObj.failure)
             }
         }
     }
@@ -228,12 +236,8 @@ const Stump = ({renderWithUpdate})=>{
                                             <button disabled={isMailRecieved} onClick = {verifyEmailApi} className={Styles.emailSendCta}> {isMailRecieved ? <><IoIosTimer/> {`${waitTime}`}</>  :'Send OTP'}</button>
                                             {veirfyEntry===true && <button onClick = {verifyOTP} className={Styles.emailVerifyCta}>Verify OTP</button>}
                                         </div>
-                                       
+                                        <p  className={`${Styles.otpStatus} ${otpStatus === otpStatusObj.failure ? Styles.redOtpStatus : ''}`}>{otpStatus}</p>
                                    </div>
-                                
-                                    <div className={Styles.mailVerifyTailBox}>
-                                     
-                                    </div>
                                </div>
             }
 
