@@ -16,7 +16,7 @@ const Stump = ({renderWithUpdate})=>{
     const [questions,setQuestions]  = useState([])
     const [currentQuestion,changeQuestion] = useState(0)
     const [answersObj,updateAnswerObj] = useState({})
-    const [emailVerifyBox,setEmailVerifyBox] = useState(true)
+    const [emailVerifyBox,setEmailVerifyBox] = useState(false)
     const [userEmail,setUserEmail] = useState('')
     const [isMailRecieved,setisMailRecieved] = useState(false)
     const [waitTime,setWaitTime] = useState(25)
@@ -27,11 +27,9 @@ const Stump = ({renderWithUpdate})=>{
     
     useEffect(()=>{
         const jwtToken = Cookies.get('jwtToken')
-        console.log(jwtToken)
         if (jwtToken){
           const decodedJwt = jwtDecode(jwtToken)
           const email = decodedJwt.email
-          console.log(email)
           setUserEmail(email)
     }
     },[])
@@ -71,7 +69,6 @@ const Stump = ({renderWithUpdate})=>{
 
     const updateQuestion =  step => {
         const questionNum  = currentQuestion;
-        console.log('question:', questionNum)
         if (questionNum===questions.length-1 && step==='Next'){
            setEmailVerifyBox(true)
         }
@@ -101,7 +98,6 @@ const Stump = ({renderWithUpdate})=>{
           setUserEmail(event.target.value)
     }
 
-    console.log(answersObj)
 
     let waitTimer;
     const sendOtpAgain = () => {
@@ -149,9 +145,6 @@ const Stump = ({renderWithUpdate})=>{
        try{
         const response = await fetch(emailVerifyApi,emailVerifyOptions)
         const responseData = await response.json()
-        console.log('response',response)
-        console.log('response data',responseData)
-
         if (response.ok){
             setisMailRecieved(true)
             setOtpFromApi(responseData.oneTimePassword)
@@ -169,7 +162,6 @@ const Stump = ({renderWithUpdate})=>{
 
    
     const verifyOTP = async () => {
-        console.log('yes')
         if (otpFromApi){
             const typedOtp = parseInt(otp)
             console.log(otpFromApi===typedOtp)

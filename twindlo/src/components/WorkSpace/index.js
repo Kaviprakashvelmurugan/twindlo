@@ -14,7 +14,6 @@ class WorkSpace  extends Component {
     state = {userVerified:false }
     
     componentDidMount(){
-        console.log('came')
         const jwtToken = Cookies.get('jwtToken');
         const decodedJwt = jwtDecode(jwtToken);
         const {isVerified} = decodedJwt
@@ -31,9 +30,10 @@ class WorkSpace  extends Component {
         const {userVerified} = this.state
         return (
             <div className={Styles.workSpaceBg}>
-                 <div className={Styles.stump}>
-                        {!userVerified && <Stump className={Styles.stump} renderWithUpdate= {this.renderWithUpdate} />}
-                 </div>
+                 { !userVerified &&   <div className={Styles.stump}>
+                        <Stump className={Styles.stump} renderWithUpdate= {this.renderWithUpdate} />
+                 </div>}
+               
                  <NavbarWs/>
             </div>
         ) 

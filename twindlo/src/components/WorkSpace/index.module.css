@@ -1,12 +1,8 @@
-*{
-  font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-}
 
 .workSpaceBg{
     width: 100vw;
-    min-height:100vh;
-    background-color: rgb(255, 255, 255);
+    height:100vh;
+    background-color: rgb(241, 241, 241);
     position: relative;
 }
 
