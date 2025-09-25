@@ -34,4 +34,4 @@ const NavbarWs = () => {
        </div>
     ) 
 }
-export default NavbarWs 
+export default NavbarWs

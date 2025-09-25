@@ -202,10 +202,11 @@ const questions = [
     id: 2, 
     field:"gender",
     questionText: "Gender", 
-    type: "text", 
+    type: "select", 
     required: true, 
+     options: ["Male","Female"], 
     subtext: "Reveal your gender ! ", 
-    placeholder: "e.g., Male/Female" 
+    placeholder: "Select your Gender",
   },
   { 
     id: 3, 
@@ -384,6 +385,17 @@ twindlo.post('/update-verify-status' , async (request,response)=>{
   const secretkey = 'insomnia'
   const {email,newMail,isVerified,answers} = request.body
 
+  const defaultMaleProfiles = [
+    'https://res.cloudinary.com/djtbynnte/image/upload/male-d-6_upn6la.png',
+    'https://res.cloudinary.com/djtbynnte/image/upload/male-d-5_nxhp9i.png',
+    'https://res.cloudinary.com/djtbynnte/image/upload/male-d-1_yjwlzw.png',
+    'https://res.cloudinary.com/djtbynnte/image/upload/male-d-2_vy5rcp.png',
+    'https://res.cloudinary.com/djtbynnte/image/upload/male-d-4_jsmukt.png'
+  ]
+  const defaultProfile = defaultMaleProfiles[Math.floor(Math.random()*defaultMaleProfiles.length)]
+
+
+console.log(defaultProfile)
   const {CourseOfInterest,
          YearOfStudy,
          degree,
@@ -420,8 +432,8 @@ twindlo.post('/update-verify-status' , async (request,response)=>{
 
     ///* ADD PROFILE_DETAILS*///
 
-    const addProfileDetails = 'INSERT INTO USER_PROFILES (  user_id,username,location,education_level,degree,department,year_of_study,reason_to_join,account_type,github_link) VALUES (?,?,?,?,?,?,?,?,?,?,?);'
-    const [dbProfileDetialsResponse] = await db.execute(addProfileDetails,[userId,name,gender,location,educationLevel,degree,department,YearOfStudy,whyJoining,accountType,socialLink,])
+    const addProfileDetails = 'INSERT INTO USER_PROFILES (  user_id,username,gender,location,education_level,degree,department,year_of_study,reason_to_join,account_type,github_link,profile_url) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);'
+    const [dbProfileDetialsResponse] = await db.execute(addProfileDetails,[userId,name,gender,location,educationLevel,degree,department,YearOfStudy,whyJoining,accountType,socialLink,defaultProfile])
     
 
 

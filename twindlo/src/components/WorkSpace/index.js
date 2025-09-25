@@ -31,7 +31,7 @@ class WorkSpace  extends Component {
         return (
             <div className={Styles.workSpaceBg}>
                  { !userVerified &&   <div className={Styles.stump}>
-                        <Stump className={Styles.stump} renderWithUpdate= {this.renderWithUpdate} />
+                        <Stump  renderWithUpdate= {this.renderWithUpdate} />
                  </div>}
                
                  <NavbarWs/>
