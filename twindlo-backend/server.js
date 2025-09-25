@@ -200,6 +200,15 @@ const questions = [
   },
   { 
     id: 2, 
+    field:"gender",
+    questionText: "Gender", 
+    type: "text", 
+    required: true, 
+    subtext: "Reveal your gender ! ", 
+    placeholder: "e.g., Male/Female" 
+  },
+  { 
+    id: 3, 
     field:'location',
     questionText: "Location (City / Country)", 
     type: "text", 
@@ -210,7 +219,7 @@ const questions = [
 
   // Section 2: Academic / Professional Background
   { 
-    id: 3,
+    id:4,
     field :'educationLevel', 
     questionText: "Education Level", 
     type: "select", 
@@ -219,8 +228,8 @@ const questions = [
     required: true, 
     subtext: "Your journey so far helps us suggest the right learning paths for you." 
   },
-  { 
-    id: 4, 
+  {
+    id:5, 
     field:'degree',
     questionText: "Degree", 
     type: "select", 
@@ -230,7 +239,7 @@ const questions = [
     subtext: "Tell us your degree—it helps us match you with like-minded learners." 
   },
   { 
-    id: 5, 
+    id: 6, 
     field : 'department',
     questionText: "Department / Major", 
     type: "select", 
@@ -240,7 +249,7 @@ const questions = [
     subtext: "Pick your department or major to help us connect you better." 
   },
   { 
-    id: 6,
+    id:7,
     field:'YearOfStudy', 
     questionText: "Year of Study / Experience", 
     type: "select", 
@@ -252,7 +261,7 @@ const questions = [
 
   // Section 3: Interests & Goals
   { 
-    id: 7, 
+    id:8, 
     field:"whyJoining",
     questionText: "Why are you joining Twindlo?", 
     type: "select", 
@@ -262,7 +271,7 @@ const questions = [
     subtext: "Let us know your goal—this helps us guide you better!" 
   },
   { 
-    id: 8, 
+    id: 9, 
     field : 'CourseOfInterest',
     questionText: "Subjects / Courses of Interest", 
     type: "checkbox", 
@@ -292,7 +301,7 @@ const questions = [
     subtext: "Pick your favorite subjects or skills you want to discuss with Your buddy." 
   },
   { 
-    id: 9,
+    id: 10,
     field:"workStyle" ,
     questionText: "Preferred Study / Work Style", 
     type: "select", 
@@ -304,7 +313,7 @@ const questions = [
 
   // Section 4: Account  type
   { 
-    id: 10,
+    id: 11,
     field:'accountType',
     questionText: "What type of account would you like to create?", 
     type: "select", 
@@ -317,7 +326,7 @@ const questions = [
 
   // Section 5: Optional Social / Profile Info
   { 
-    id: 11, 
+    id: 12, 
     field:"socialLink",
     questionText: "GitHub / LinkedIn / Portfolio URL", 
     type: "text", 
@@ -384,7 +393,8 @@ twindlo.post('/update-verify-status' , async (request,response)=>{
          name,
          socialLink,
          whyJoining,
-         accountType
+         accountType,
+         gender
         } = answers
 
   try{
@@ -410,8 +420,8 @@ twindlo.post('/update-verify-status' , async (request,response)=>{
 
     ///* ADD PROFILE_DETAILS*///
 
-    const addProfileDetails = 'INSERT INTO USER_PROFILES (  user_id,username,location,education_level,degree,department,year_of_study,reason_to_join,account_type,github_link) VALUES (?,?,?,?,?,?,?,?,?,?);'
-    const [dbProfileDetialsResponse] = await db.execute(addProfileDetails,[userId,name,location,educationLevel,degree,department,YearOfStudy,whyJoining,accountType,socialLink,])
+    const addProfileDetails = 'INSERT INTO USER_PROFILES (  user_id,username,location,education_level,degree,department,year_of_study,reason_to_join,account_type,github_link) VALUES (?,?,?,?,?,?,?,?,?,?,?);'
+    const [dbProfileDetialsResponse] = await db.execute(addProfileDetails,[userId,name,gender,location,educationLevel,degree,department,YearOfStudy,whyJoining,accountType,socialLink,])
     
 
 

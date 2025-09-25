@@ -71,6 +71,20 @@
     display: none;
 }
 
+.profileCard{
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: 2px 1px 15px 2px #c8c8c8;
+    border-radius: 5px;
+    position: absolute;
+    top:70px;
+    right:-20px;
+    cursor: default;
+    pointer-events: none;
+}
+
+
 @media(max-width:1200px){
     .menuForMobile{
         display: flex;
