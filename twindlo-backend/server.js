@@ -235,7 +235,7 @@ const questions = [
     questionText: "Degree", 
     type: "select", 
     placeholder: "Select your degree",
-    options: ["B.Tech", "B.Sc", "M.Tech", "MBA", "PhD"], 
+    options: ["B.Tech", "B.Sc", "M.Tech", "MBA", "PhD" ,'School Student'], 
     required: true, 
     subtext: "Tell us your degree—it helps us match you with like-minded learners." 
   },
@@ -245,7 +245,7 @@ const questions = [
     questionText: "Department / Major", 
     type: "select", 
     placeholder: "Select your department",
-    options: ["Computer Science", "Electronics", "Mechanical", "Civil", "Mathematics", "Physics", "Chemistry"], 
+    options: ["Computer Science", "Electronics", "Mechanical", "Civil", "Mathematics", "Bio Maths", "Commerce" ,'Agriculture'], 
     required: true, 
     subtext: "Pick your department or major to help us connect you better." 
   },
@@ -385,14 +385,23 @@ twindlo.post('/update-verify-status' , async (request,response)=>{
   const secretkey = 'insomnia'
   const {email,newMail,isVerified,answers} = request.body
 
-  const defaultMaleProfiles = [
+  let defaultProfiles = [
     'https://res.cloudinary.com/djtbynnte/image/upload/male-d-6_upn6la.png',
     'https://res.cloudinary.com/djtbynnte/image/upload/male-d-5_nxhp9i.png',
     'https://res.cloudinary.com/djtbynnte/image/upload/male-d-1_yjwlzw.png',
     'https://res.cloudinary.com/djtbynnte/image/upload/male-d-2_vy5rcp.png',
     'https://res.cloudinary.com/djtbynnte/image/upload/male-d-4_jsmukt.png'
   ]
-  const defaultProfile = defaultMaleProfiles[Math.floor(Math.random()*defaultMaleProfiles.length)]
+  
+  if (answers.gender==='Female'){
+    defaultProfiles = ['https://res.cloudinary.com/djtbynnte/image/upload/v1758767989/female-d-4_j1zxzc.png',
+                       'https://res.cloudinary.com/djtbynnte/image/upload/v1758767991/female-d-5_m4kull.png',
+                       'https://res.cloudinary.com/djtbynnte/image/upload/v1758767984/female-d-3_sqswfy.png',
+                       'https://res.cloudinary.com/djtbynnte/image/upload/v1758767982/female-d-2_ytdhwg.png',
+                       'https://res.cloudinary.com/djtbynnte/image/upload/v1758767980/female-d-1_jjh1dt.png'
+    ]
+  }
+  const defaultProfile = defaultProfiles[Math.floor(Math.random()*defaultProfiles.length)]
 
 
 console.log(defaultProfile)
@@ -420,7 +429,7 @@ console.log(defaultProfile)
       return response.status(400).json({message:'User Not Found',success:false})
      }
      const userId = userRow[0].id
-     console.log(userId)
+  
      ///* UPDATING IS_VERIFIED *///
 
      const updateIsVerifiedQuery = 'UPDATE USERS  SET email = ? , isVerified = ?  WHERE email = ?'
@@ -454,6 +463,67 @@ console.log(defaultProfile)
     console.log(error)
      await db.rollback()
     response.status(400).json({message:'Wrong OTP Has been Entered !'})
+  }
+
+})
+
+
+twindlo.get('/user-basic-profile-details',async (request,response)=>{
+  const secretkey = 'insomnia'
+  const authorization = request.headers['authorization']
+  if(!authorization){
+    return response.status(400).json({
+      success:false,
+      ok:false,
+      message:"Empty Jwt Token Provided !"
+    })
+  }
+  const jwtToken = authorization.split(' ')[1]
+  const payLoad = jwt.verify(jwtToken,secretkey)
+  const {email}  = payLoad 
+  const getUserId= 'SELECT id FROM  USERS WHERE email = ?'
+
+  try {
+
+    /// GET USER ID///
+    const [rows] = await db.execute(getUserId,[email])
+
+    if (rows.length===0){
+      return response.status(400).json({
+        success:false,
+        ok:false,
+        message:"No user Found!"
+      })
+    }
+    const user = rows[0]
+    const userId = user.id
+
+
+    /// GET PROFILE DETAILS /// 
+
+    const getProfileDetails = 'SELECT * FROM user_profiles WHERE user_id =?'
+    const [details] = await db.execute(getProfileDetails,[userId])
+  
+    if (!details){
+      return response.status(400).json({
+        success:false,
+        ok:false,
+        message:"No Records For user !"
+      })
+    }
+
+    const profileDetails = details[0]
+    console.log(profileDetails)
+    console.log[user.id,user]
+    response.status(200).json({profileDetails})
+  }
+  catch(error){
+    console.log(error)
+    return response.status(400).json({
+        success:false,
+        ok:false,
+        message:"Request Failed !"
+      })
   }
 
 })

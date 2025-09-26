@@ -1,5 +1,4 @@
 
-
 .navbarWsBg{
     width: 100vw;
     height: 75px;
@@ -10,7 +9,7 @@
     border-bottom: 1px solid rgb(231, 231, 231);
     background-color: #fff;
     position: fixed;
-    
+
 
 }
 
@@ -82,9 +81,125 @@
     top:70px;
     right:-20px;
     cursor: default;
-    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
 }
 
+.showProfileCard{
+    display: flex;
+}
+.tagLine{
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-size: 0.8em;
+    background-image: linear-gradient(to right,#2556db,#f01ff7);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.profileCard hr{
+    width: 80%;
+    border:0.5px solid rgb(210, 210, 210);
+    margin-bottom: 20px;
+}
+.profilePicCard{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profilePic{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    margin:20px 0 20px 0;
+}
+
+.profilePicCard h1{
+    font-size: 1em;
+    color: #464646;
+    margin-bottom: 5px;
+}
+
+.profilePicCard p{
+    font-size: 0.8em;
+    color: #7a7a7a;
+    margin-top: 0;
+}
+
+.iconBoxProfile{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 45px;
+    width: 80%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: #efefef;
+    border-radius: 5px;
+}
+
+.iconBoxProfile svg{
+    color: #808080;
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.iconBoxProfile p{
+    color: #303030;
+    font-size: 0.9em;
+    margin-left: 20px;
+}
+
+.streakDisplay{
+   height: 100px;
+   width: 80%; 
+   background-image:linear-gradient(to right,#0e37da,#4287ff);
+   margin-top: 10px;
+   margin-bottom: 20px;
+   border-radius: 7px;
+   position: relative;
+}
+
+.streakDisplay h1{
+    color: #f0f0f0;
+    font-weight: 500;
+    font-size: 1em;
+    margin: 20px 0 10px 20px;
+}
+
+h1 img{
+    width: 20px;
+    margin: 0;
+}
+.streakDisplay p{
+    font-size: 0.7em;
+    margin: 0 0 5px 20px;
+    padding: 0;
+    color: #e5e5e5;
+}
+
+
+.logoutCta{
+    height: 40px;
+    width: 80%;
+    border: 1px solid rgb(249, 93, 93);
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+    font-size: 0.9em;
+    color: #f75353;
+    border-radius: 7px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    cursor: pointer !important;
+}
 
 @media(max-width:1200px){
     .menuForMobile{
