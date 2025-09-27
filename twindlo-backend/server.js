@@ -513,8 +513,6 @@ twindlo.get('/user-basic-profile-details',async (request,response)=>{
     }
 
     const profileDetails = details[0]
-    console.log(profileDetails)
-    console.log[user.id,user]
     response.status(200).json({profileDetails})
   }
   catch(error){

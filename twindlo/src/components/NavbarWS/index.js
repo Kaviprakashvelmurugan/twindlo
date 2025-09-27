@@ -6,12 +6,15 @@ import Cookies from 'js-cookie';
 import { MdNotificationsNone } from "react-icons/md";
 import { TbSwords } from "react-icons/tb";
 import { FaRegUserCircle } from "react-icons/fa";
-import { HiMenu } from "react-icons/hi";
+import { MdMenu } from "react-icons/md";
+import { MdOutlineClose } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 
 
-const NavbarWs = () => {
+const NavbarWs = ({toggleDashBoard}) => {
     const [profileDetails,setProfileDetails] = useState({})
+    const [showDashBoard,setShowDashBoard] = useState(false)
+
     const profileCard = useRef()
      const getProfileDetails = async () =>{
         const jwtToken = Cookies.get('jwtToken')
@@ -52,9 +55,16 @@ const NavbarWs = () => {
          console.log(error)
         }
       }
-
+     
+      const updateMenuIconWhileResize = () =>{
+         setShowDashBoard(false)
+      }
      useEffect(()=>{
         getProfileDetails()
+        window.addEventListener('resize',updateMenuIconWhileResize)
+        return ()=>{
+         window.removeEventListener('resize' ,updateMenuIconWhileResize)
+        }
      },[])
      
      const toggleProfile = () => {
@@ -63,6 +73,12 @@ const NavbarWs = () => {
        }
      }
 
+     const toggleMenu = () => {
+        setShowDashBoard(prev=>{
+         return !prev
+        })
+        toggleDashBoard()
+     }
 
      const {accountType,degree,department,educationLevel,gender,gitHubLink,id,location,profileUrl,reasonToJoin,userId,userName,uesrOfStudy} = profileDetails
      const loaded = Object.keys(profileDetails).length>0
@@ -70,7 +86,7 @@ const NavbarWs = () => {
        <div className={Styles.navbarWsBg}>
                  
                 <img  className={Styles.twindloLogoForNav} src={process.env.REACT_APP_TWINDLO_LOGO} alt = 'twindlo logo'/>
-                <button className={Styles.menuForMobile}> <HiMenu/> </button>
+                <button onClick={toggleMenu} className={Styles.menuForMobile}> {showDashBoard?<MdOutlineClose/>:<MdMenu/>} </button>
                 <div className={Styles.navEndBox}>
                     <Link to = '#' className={Styles.navLink} tooltip='Notifications'>
                        <MdNotificationsNone />
