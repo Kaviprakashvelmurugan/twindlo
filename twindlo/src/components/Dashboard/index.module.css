@@ -12,6 +12,7 @@
     transition: background 0.3s ease-in-out; 
     cursor: pointer;
     margin-bottom: 35px;
+    font-weight: 500;
     
 }
 
@@ -27,6 +28,7 @@
     margin-left: 20px;
     margin-right: 25px;
     color: rgb(124, 124, 124);
+    font-weight: 500;
 }
 
 .dashBoardButton img{
@@ -56,4 +58,14 @@
      background-clip: text;
      background-image: linear-gradient(to right,#ff0ceb,#4639ff);
 
+}
+
+.clickedDashButton{
+    color: #673De6; ;
+    background-color: #eeeeeec4;
+}
+
+
+.clickedDashButton svg{
+    color: #673De6;
 }

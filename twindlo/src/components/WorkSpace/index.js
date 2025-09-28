@@ -72,15 +72,21 @@ class WorkSpace  extends Component {
          }
     }
 
+    recieveDashValue = clickedButton => {
+      this.setState({dashValue:clickedButton})
+    }
+
     renderSwitcher = () => {
         const {dashValue} = this.state
         switch(dashValue) {
             case this.dashObj.home:
-                return <DashHome/>;
+                return <DashHome recieveDashValue = {this.recieveDashValue}/>;
             default:
                 return null
         }
     }
+
+
    
     render(){
         const {userVerified} = this.state
@@ -93,7 +99,7 @@ class WorkSpace  extends Component {
                  <NavbarWs toggleDashBoard  = {this.toggleDashBoard}/>
                  <div  className={Styles.workspace}>
                      <div ref= {this.dash} className={Styles.dashBoard}>
-                            <Dashboard/>
+                            <Dashboard recieveDashValue={this.recieveDashValue}/>
                      </div>
                      
                      <div className={Styles.workSpaceContent}>
