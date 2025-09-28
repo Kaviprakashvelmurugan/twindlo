@@ -1,15 +1,7 @@
 
-
-.dashLink{
-    text-decoration: none;
+.dashBoardButton{
     width: 80%;
     height: 50px;
-    margin-bottom: 30px;
-    transition: background 0.3s ease-in-out; 
-}
-.dashBoardButton{
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,14 +9,17 @@
     background-color: transparent;
     border:none;
     border-radius: 5px;
-      cursor: pointer;
+    transition: background 0.3s ease-in-out; 
+    cursor: pointer;
+    margin-bottom: 35px;
+    
 }
 
-.firstDashLink{
+.firstDashButton{
     margin-top: 50px;
 }
 
-.dashLink:hover{
+.dashBoardButton:hover{
     background-color: #ececec;
 }
 .dashBoardButton svg{
@@ -41,7 +36,7 @@
     animation: spin-teek 3s linear infinite ; 
 }
 
-.dashLink:hover  img{
+.dashBoardButton:hover  img{
     animation-play-state: paused;
 }
 @keyframes  spin-teek {

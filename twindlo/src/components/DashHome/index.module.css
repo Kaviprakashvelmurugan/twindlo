@@ -1,0 +1,49 @@
+.dashHomeBg{
+    width:90%;
+ 
+    margin-top: 40px;
+}
+
+.userWelcomeCard{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:2%;
+}
+
+.welcomeHeader{
+    height: 300px;
+    width: 60%;
+    box-shadow: 0 0.7em 1.5em -0.5em hsla(249, 100%, 68%, 0.894);
+    transition: transform 0.3s;
+      background: linear-gradient(
+    to top right,
+    #2c15ff,
+    #055be6 40%,
+    #3681fa 65%,
+    #6281ff 100%
+  );
+  border-radius: 10px;
+}
+
+.welcomeDetails{
+    background-color: #fff;
+    height: 300px;
+    width:38%;
+    border-radius: 10px;
+}
+
+
+@media(max-width:992px){
+    .welcomeHeader{
+     width:100%;
+     margin-bottom:20px;
+     height: 250px;
+    }
+
+    .welcomeDetails{
+    width:100%;
+    height: 250px;
+   }
+}

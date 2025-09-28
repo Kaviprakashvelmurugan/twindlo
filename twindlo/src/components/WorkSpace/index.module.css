@@ -1,6 +1,6 @@
 .dashBoard{
   position: sticky;
-  top:75px;
+  top:0px;
   left:0px;
   width: 300px;
   height: calc(100vh - 75px);
@@ -8,10 +8,12 @@
   border-right: 1px solid rgb(230, 230, 230);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   transition: transform 0.5s ease-in-out;
-
+  z-index: 1;
 }
+
 
 .closeDash{
    transform: translateX(-100%);
@@ -22,7 +24,7 @@
 .workSpaceBg{
     width: 100vw;
     height:100vh;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(237, 237, 237);
     position: relative;
 }
 
@@ -39,16 +41,37 @@ h1{
 }
 
 .workspace{
-  position: relative;
+  position: absolute;
   top:75px;
   left:0;
-  width: 100%;
+  width:100%;
   height:calc(100vh - 75px);
-  overflow-y: auto;
+  overflow-y:auto;
+  display: flex;
+ 
 }
  
 
+.workSpaceContent{
+  position: absolute;
+  top:0;
+  left:300px;
+  width:calc(100vw - 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 
+@media(max-width:1200px){
+  .workSpaceContent{
+     position: absolute;
+     top:0;
+     left:0;
+     width:100vw;
+     border: 1px solid red;
+  }
+}
 
 
 
