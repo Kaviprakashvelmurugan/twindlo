@@ -435,7 +435,10 @@ console.log(defaultProfile)
      const updateIsVerifiedQuery = 'UPDATE USERS  SET email = ? , isVerified = ?  WHERE email = ?'
      const [dbResponse] = await db.execute(updateIsVerifiedQuery,[newMail,isVerified,email])
      console.log('here',dbResponse.affectedRows)   
-     const payLoad = {email:newMail,isVerified}
+     const payLoad = {email:newMail,isVerified,name}
+
+     console.log(payLoad)
+     
      const jwtToken = jwt.sign(payLoad,secretkey)
      
 

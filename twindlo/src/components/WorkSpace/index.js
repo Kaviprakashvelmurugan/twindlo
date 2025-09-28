@@ -9,7 +9,7 @@ import DashHome from '../DashHome'
 import Cookies from 'js-cookie'
 import {jwtDecode}  from 'jwt-decode'
 
-
+import UserContext from '../UserContext'
 
 class WorkSpace  extends Component {
     
@@ -18,12 +18,15 @@ class WorkSpace  extends Component {
         home:'home'
     }
 
-    state = {userVerified:false ,showDashBoard:false,dashValue:this.dashObj.home}
+    state = {userVerified:false ,showDashBoard:false,dashValue:this.dashObj.home,user:null}
     dash = createRef()
     componentDidMount(){
         const jwtToken = Cookies.get('jwtToken');
         const decodedJwt = jwtDecode(jwtToken);
-        const {isVerified} = decodedJwt
+        console.log('here',decodedJwt)
+        const {isVerified,id,email,name} = decodedJwt
+        
+        this.setState({user:{userId:id,email:email,name:name}})
         if (isVerified){
            this.setState({userVerified:true})
         }
@@ -51,12 +54,14 @@ class WorkSpace  extends Component {
             }
           } 
         })
-
-        return ()=>{
-            window.removeEventListener('resize')
-        }
     }
   
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
+
     renderWithUpdate = flag => {
         this.setState({userVerified:flag})
     }
@@ -89,24 +94,28 @@ class WorkSpace  extends Component {
 
    
     render(){
-        const {userVerified} = this.state
+        const {userVerified,user} = this.state
+        const {name,userId,email} = user || {};
         return (
-            <div className={Styles.workSpaceBg}>
-                 { !userVerified &&   <div className={Styles.stump}>
+            <UserContext.Provider value={{userId,email,name}}>
+                <div className={Styles.workSpaceBg}>
+                     { !userVerified &&   <div className={Styles.stump}>
                         <Stump  renderWithUpdate= {this.renderWithUpdate} />
-                 </div>}
+                     </div>}
                
-                 <NavbarWs toggleDashBoard  = {this.toggleDashBoard}/>
-                 <div  className={Styles.workspace}>
-                     <div ref= {this.dash} className={Styles.dashBoard}>
+                    <NavbarWs toggleDashBoard  = {this.toggleDashBoard}/>
+                    <div  className={Styles.workspace}>
+                      <div ref= {this.dash} className={Styles.dashBoard}>
                             <Dashboard recieveDashValue={this.recieveDashValue}/>
-                     </div>
+                       </div>
                      
-                     <div className={Styles.workSpaceContent}>
-                         {this.renderSwitcher()}
+                      <div className={Styles.workSpaceContent}>
+                          {this.renderSwitcher()}
+                      </div>
                      </div>
-                 </div>
-            </div>
+                </div>
+            </UserContext.Provider>
+           
         ) 
     }
 }

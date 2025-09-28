@@ -80,9 +80,10 @@ const NavbarWs = ({toggleDashBoard}) => {
         toggleDashBoard()
      }
 
-     const {accountType,degree,department,educationLevel,gender,gitHubLink,id,location,profileUrl,reasonToJoin,userId,userName,uesrOfStudy} = profileDetails
+  
+     const {location,profileUrl,userName,} = profileDetails
      const loaded = Object.keys(profileDetails).length>0
-     return (
+     return ( 
        <div className={Styles.navbarWsBg}>
                  
                 <img  className={Styles.twindloLogoForNav} src={process.env.REACT_APP_TWINDLO_LOGO} alt = 'twindlo logo'/>

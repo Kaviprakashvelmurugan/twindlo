@@ -82,13 +82,14 @@
 .checkboxBox{
      width:85%;
      height: 40%;
-     margin-bottom: 30px;
+     margin-bottom: 5px;
      position: relative;
+     border:1px solid black;
 }
 
 .checkboxParent{
    width:100%;
-   height:100%;
+   height:90%;
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
