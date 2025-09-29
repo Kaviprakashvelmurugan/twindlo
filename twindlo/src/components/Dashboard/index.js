@@ -11,7 +11,7 @@ import {useState} from 'react'
 const Dashboard = ({recieveDashValue}) => {
     const dashButtons = {
         home:'home',
-        upFor:'up for',
+        upFor:'upFor',
         challenges:'challenges',
         buddies:'buddies',
         teek:'teek',

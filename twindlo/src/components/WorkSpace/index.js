@@ -5,6 +5,8 @@ import Stump from '../Stump';
 import NavbarWs from '../NavbarWS';
 import Dashboard from '../Dashboard'
 import DashHome from '../DashHome'
+import UpFor from '../UpFor'
+
 
 import Cookies from 'js-cookie'
 import {jwtDecode}  from 'jwt-decode'
@@ -15,7 +17,8 @@ class WorkSpace  extends Component {
     
 
     dashObj = {
-        home:'home'
+        home:'home',
+        upFor:'upFor'
     }
 
     state = {userVerified:false ,showDashBoard:false,dashValue:this.dashObj.home,user:null}
@@ -86,6 +89,8 @@ class WorkSpace  extends Component {
         switch(dashValue) {
             case this.dashObj.home:
                 return <DashHome recieveDashValue = {this.recieveDashValue}/>;
+            case this.dashObj.upFor:
+                return <UpFor/>
             default:
                 return null
         }

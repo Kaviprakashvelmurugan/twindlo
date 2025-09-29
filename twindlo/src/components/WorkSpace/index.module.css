@@ -24,7 +24,7 @@
 .workSpaceBg{
     width: 100vw;
     height:100vh;
-    background-color: rgb(237, 237, 237);
+    background-color: #fafafa;
     position: relative;
 }
 
@@ -68,7 +68,6 @@ h1{
      top:0;
      left:0;
      width:100vw;
-     border: 1px solid red;
   }
 }
 
