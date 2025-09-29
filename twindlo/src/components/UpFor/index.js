@@ -1,10 +1,11 @@
-
 import Styles from './index.module.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import Cookies from 'js-cookie'
+
+import Topic from '../Topic'
 
 const UpFor = () => {
     const languages = {
-        initial:'Choose Language',
         python:'python',
         java:'java',
         javascript:'javascript',
@@ -35,15 +36,88 @@ const UpFor = () => {
         }
     ]
 
+    const languageIds = {
+        python:1,
+        java:2,
+        cplusplus:3,
+        javascript:4
+    }
+    
+    const apiStatusObj = {
+        loading:'loading',
+        success:'success',
+        failed:'failed'
+    }
+
+    const fetchTopics = async () => {
+        
+        const languageId = languageIds[language]
+        const jwtToken = Cookies.get('jwtToken')
+        const fetchUrl = `http://localhost:3000/topics?language=${languageId}`
+        const options = {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${jwtToken}`
+            }
+        }
+
+        try{
+            const response = await fetch(fetchUrl,options)
+            const responseTopics =  await response.json()
+            console.log('here' , responseTopics)
+            setTopics(responseTopics.topics)
+            setApiStatus(apiStatusObj.success)
+         }
+        catch(error){
+            console.log(error)
+         }
+    }
+    useEffect(()=>{
+        fetchTopics()
+    },[])
 
 
-    const [language,setLanguage] = useState(languages.initial)
+    const [language,setLanguage] = useState(languages.python)
+    const [apiStatus,setApiStatus] = useState(apiStatusObj.loading)
+    const [topics,setTopics] = useState(null)
+
+    const renderTopics = () => {
+        return topics.map((eachTopic,index)=>{
+            return <Topic key ={index} topicDetails={eachTopic}/>
+        })
+    }
+
+    const renderFailureView = ()=> {
+        return (
+            <h1>Failed</h1>
+        )
+    }
+
+    const renderSkeleton= ()=>{
+        return (
+            <h1>loading</h1>
+        )
+    }
+    const renderSwitcher = () => {
+
+        switch(apiStatus){
+            case apiStatusObj.success:
+               return renderTopics()
+            case apiStatusObj.loading:
+                return renderSkeleton()
+            default:
+                return renderFailureView()
+        }
+    }
+
+
     return (
          <>
           <div className = {Styles.upForHeaderBg}>
              <div className={Styles.upForHeaderContent}>
-                 <h1 className={Styles.upForHeading}>Im Up for !</h1>
-                 <p className={`${Styles.language} ${language===languages.initial ? Styles.intialLanguage : ''}`}>{language}</p>
+                 <h1 className={Styles.upForHeading}>Im Up for....</h1>
+                 <p className={Styles.language}>{language}</p>
                  <div className={Styles.languageButtons}>
                     {
                         languageUrlList.map(each=>{
@@ -55,11 +129,20 @@ const UpFor = () => {
                         })
                     }
                  </div>
+                 <p className={Styles.microClarity}>( Pick your language. Then choose 2+ topics )</p>
              </div>
              <div className={Styles.upForHeaderAnimation}>
 
              </div>
           </div>
+
+          <div className={Styles.topicsHeader}>
+               <h1>Build Your Challenge Path</h1>
+               <p>Select at least 2 topics to tailor your coding journey.</p>
+          </div>
+               {
+                renderSwitcher()
+               }
          </>
     )
 }

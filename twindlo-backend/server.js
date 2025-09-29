@@ -528,3 +528,42 @@ twindlo.get('/user-basic-profile-details',async (request,response)=>{
   }
 
 })
+
+
+twindlo.get('/topics' , async (request,response)=>{
+     const {language} = request.query
+
+     const {authorization} = request.headers 
+     const jwtToken = authorization.split(' ')[1]
+     if (jwtToken===undefined){
+      return response.status(400).json({
+        success:false,
+        message:'Invalid User'
+      })
+     }
+     
+     try{
+      console.log(language)
+      const getTopics= `SELECT * FROM topics WHERE language_id=? `
+      const [rows] = await db.execute(getTopics,[language])
+      if(!rows){
+        return response.status(400).json({
+          success:false,
+          message:'No Topics Found'
+        })
+      }
+      response.status(200).json({
+        topics:rows,
+        message:'Topics Fetched Successfully'
+      })
+
+     }
+     catch(error){
+         console.log(error)
+         return response.status(500).json({
+          success:false,
+          message:'Uncaught Error'
+        })
+     }
+})
+

@@ -1,0 +1,61 @@
+.topic{
+    width: 90%;
+    background-color: #fff;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    position: relative;
+}
+
+.topic button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+
+.topic button img{
+    width: 30px;
+}
+
+.topicContent{
+  margin-top: 15px;
+  margin-left: 20px;
+  
+
+}
+
+.topicContent h1{
+    font-size: 0.9em;
+    color: #535353;
+    margin: 0 0 10px 0px;
+    font-weight: 500;
+}
+
+.topicContent p{
+    font-size: 0.7em;
+    color: #777777;
+    margin: 0 0 20px 0px;
+}
+
+.difficulty{
+    color: #27bb3b;
+    font-size: 0.7em;
+    margin-left: 10px;
+}
+
+.hard{
+    color: rgba(234, 50, 50, 0.897);
+}
+
+.medium{
+    color: #eea11b;
+}
