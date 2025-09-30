@@ -89,7 +89,7 @@ const UpFor = () => {
             const responseTopics =  await response.json()
             console.log('here' , responseTopics)
             setTopics(responseTopics.topics)
-            setApiStatus(apiStatusObj.success)
+            setApiStatus(apiStatusObj.loading)
          }
         catch(error){
             console.log(error)
@@ -117,9 +117,15 @@ const UpFor = () => {
     }
 
     const renderSkeleton= ()=>{
-        return (
-            <h1>loading</h1>
-        )
+        return Array.from({length:5}).map((_,index)=>{
+             return <div className={Styles.skeletonCard}>
+                        <button></button>
+                        <div className={Styles.skeletonContent}>
+                            <div className={Styles.div1}></div>
+                            <div className={Styles.div2}></div>
+                        </div>
+                    </div>
+        })
     }
     const renderSwitcher = () => {
 

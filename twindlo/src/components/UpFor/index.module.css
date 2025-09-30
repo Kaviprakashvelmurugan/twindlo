@@ -11,18 +11,17 @@
 }
 
 .upForHeaderContent{
-  width:400px;
+  width:500px;
   background-color: #fff;
-  box-shadow: 2px 1px 15px 2px #e0e0e0;
+   border: 1px solid rgb(233, 233, 233);
   flex-grow: 1;
   border-radius: 7px;
 }
 .upForHeaderHotTopics{
-    width:350px;
+    width:300px;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border: 1px solid rgb(224, 224, 224);
+    background-color: #0b0b0b;
     border-radius: 5px;
     flex-grow: 1;
     padding: 20px 0 20px 0;
@@ -122,6 +121,7 @@
     border:1px solid #4c2bf4;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    opacity: 0.2;
    
 }
 
@@ -135,6 +135,7 @@
     font-size: 0.7em;
     cursor: pointer;
      transition: transform 0.3s ease-in-out;
+     opacity: 0.2;
 }
 
 .topicHeaderButtons button:hover{
@@ -145,7 +146,7 @@
 .hotTopicHeading{
     font-size: 1em;
     font-weight: 500;
-    color: #535353;
+    color: #d7d7d7;
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -174,7 +175,7 @@
 }
 .hotTopicPara{
     font-size: 0.8em;
-    color: #606060;
+    color: #9f9d9d;
    
     padding: 0;
 }
@@ -200,6 +201,50 @@
   
 }
 
+
+.skeletonCard{
+    width:80%;
+    background-color: #f1f1f1;
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.skeletonCard button{
+    background-color: #e9e8e8;
+    border-radius: 50%;
+    width: 30px;
+    height:30px;
+    border: none;
+    outline: none;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.skeletonContent{
+    display: flex;
+    flex-direction: column;
+   align-items: flex-start;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.div1{
+    height: 10px;
+    width:80%;
+    border: none;
+    background-color: #dddddd;
+    margin-top: 10px;
+}
+.div2{
+    height: 10px;
+    width:60%;
+    border: none;
+    background-color: #e4e3e3;
+    margin-top: 30px;
+}
 @media (max-width:768px){
   .topicsHeader{
     
@@ -213,6 +258,9 @@
    }
    .topicsHeader{
     width: 90%;
+   }
+   .skeletonCard{
+     width: 90%;
    }
   }
 }
