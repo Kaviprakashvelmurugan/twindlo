@@ -1,9 +1,14 @@
 import Styles from './index.module.css'
 
-const Topic = ({topicDetails}) => {
+const Topic = ({topicDetails,handleTopicSelection,isTopicSelected}) => {
+ 
+
+  const handleTopicClick = () => {
+      handleTopicSelection(topicDetails)
+  }
   return <div className={Styles.topic}>
-            <button>
-                <img src='https://res.cloudinary.com/djtbynnte/image/upload/v1759158137/chek_circle_a7uvii.png'/>
+            <button  onClick={handleTopicClick}>
+                {isTopicSelected? <> <img src='https://res.cloudinary.com/djtbynnte/image/upload/v1759158136/checked_round_z48eb4.png' alt='check-box'/></> :<img src='https://res.cloudinary.com/djtbynnte/image/upload/v1759158137/chek_circle_a7uvii.png' alt='check-box'/>}
             </button>
 
             <div className={Styles.topicContent}>

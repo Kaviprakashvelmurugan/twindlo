@@ -26,7 +26,6 @@ class WorkSpace  extends Component {
     componentDidMount(){
         const jwtToken = Cookies.get('jwtToken');
         const decodedJwt = jwtDecode(jwtToken);
-        console.log('here',decodedJwt)
         const {isVerified,id,email,name} = decodedJwt
         
         this.setState({user:{userId:id,email:email,name:name}})

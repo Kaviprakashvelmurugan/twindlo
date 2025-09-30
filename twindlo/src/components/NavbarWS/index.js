@@ -29,7 +29,6 @@ const NavbarWs = ({toggleDashBoard}) => {
 
          try{
            const response = await fetch(getProfileApi,options)
-           console.log(response)
            let jsonResponse = await response.json()
            jsonResponse = jsonResponse.profileDetails
            const details = {
@@ -48,7 +47,6 @@ const NavbarWs = ({toggleDashBoard}) => {
               uesrOfStudy:jsonResponse.year_of_study,
          }
 
-         console.log(details)
           setProfileDetails(details)
          }
          catch(error){

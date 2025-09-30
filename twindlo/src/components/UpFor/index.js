@@ -87,7 +87,6 @@ const UpFor = () => {
         try{
             const response = await fetch(fetchUrl,options)
             const responseTopics =  await response.json()
-            console.log('here' , responseTopics)
             setTopics(responseTopics.topics)
             setApiStatus(apiStatusObj.success)
          }
@@ -99,17 +98,32 @@ const UpFor = () => {
     const [language,setLanguage] = useState(languages.python)
     const [apiStatus,setApiStatus] = useState(apiStatusObj.loading)
     const [topics,setTopics] = useState(null)
-    
+    const [upForList,setUpForList] = useState([])
 
 
     useEffect(()=>{
       fetchTopics()
     },[language])
 
-
+    
+    const handleTopicSelection =  (uniqueTopic) => {
+        let newupForList = [...upForList,uniqueTopic]
+        if (upForList.includes(uniqueTopic)){
+             newupForList = upForList.filter(each=>{
+                return each !== uniqueTopic
+             })
+        }
+        
+        setUpForList(newupForList)
+    }
     const renderTopics = () => {
+
+        
         return topics.map((eachTopic,index)=>{
-            return <Topic key ={index} topicDetails={eachTopic}/>
+            console.log(upForList)
+            const isTopicSelected = upForList.includes(eachTopic) ? true : false;
+            console.log(isTopicSelected)
+            return <Topic key ={index} topicDetails={eachTopic} handleTopicSelection = {handleTopicSelection} isTopicSelected={isTopicSelected} />
         })
     }
 
@@ -141,7 +155,8 @@ const UpFor = () => {
                 return renderFailureView()
         }
     }
-
+    
+    
   
     return (
          <>

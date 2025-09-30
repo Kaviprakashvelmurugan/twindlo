@@ -541,7 +541,7 @@ twindlo.get('/topics' , async (request,response)=>{
         message:'Invalid User'
       })
      }
-     
+      
      try{
       console.log(language)
       const getTopics= `SELECT * FROM topics WHERE language_id=? `
