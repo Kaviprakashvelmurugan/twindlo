@@ -1,5 +1,5 @@
 .topic{
-    width: 90%;
+    width: 80%;
     background-color: #fff;
     border: 1px solid rgb(233, 233, 233);
     border-radius: 20px;
@@ -58,4 +58,10 @@
 
 .medium{
     color: #eea11b;
+}
+
+@media (max-width:568px){
+    .topic{
+        width: 90%;
+    }
 }

@@ -4,6 +4,10 @@ import Cookies from 'js-cookie'
 
 import Topic from '../Topic'
 
+
+import { FaFire } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+
 const UpFor = () => {
     const languages = {
         python:'python',
@@ -49,6 +53,24 @@ const UpFor = () => {
         failed:'failed'
     }
 
+    const hotTopics = [
+        {id:1,
+         imageUrl:`https://res.cloudinary.com/djtbynnte/image/upload/java_k4eqvt.png`,
+         topic:'HashMap',
+         people:245
+        },
+        {id:2,
+         imageUrl:`https://res.cloudinary.com/djtbynnte/image/upload/python_ybxxsx.png`,
+         topic:'Recursion',
+        people:199
+        },
+        {id:3,
+         imageUrl:`https://res.cloudinary.com/djtbynnte/image/upload/c_asq7mk.png`,
+         topic:'STL (Vectors & Maps)',
+         people:95
+        },
+        
+    ]
     const fetchTopics = async () => {
         
         const languageId = languageIds[language]
@@ -117,7 +139,6 @@ const UpFor = () => {
           <div className = {Styles.upForHeaderBg}>
              <div className={Styles.upForHeaderContent}>
                  <h1 className={Styles.upForHeading}>Im Up for....</h1>
-                 <p className={Styles.language}>{language}</p>
                  <div className={Styles.languageButtons}>
                     {
                         languageUrlList.map(each=>{
@@ -131,14 +152,30 @@ const UpFor = () => {
                  </div>
                  <p className={Styles.microClarity}>( Pick your language. Then choose 2+ topics )</p>
              </div>
-             <div className={Styles.upForHeaderAnimation}>
-
+             <div className={Styles.upForHeaderHotTopics}>
+                 <h1 className={Styles.hotTopicHeading}>Hot topics of the week <FaFire/></h1>
+                 {
+                    hotTopics.map(each=>{
+                        return <div className={Styles.hotTopic}>
+                                   <img src={each.imageUrl}  alt='hot-topic-image'/>
+                                   <p className={Styles.hotTopicPara}>{each.topic}</p>
+                                   <p className={Styles.choosenByUsersPara}><FaUser/> {each.people}</p>
+                               </div>
+                    })
+                 }
              </div>
           </div>
 
           <div className={Styles.topicsHeader}>
-               <h1>Build Your Challenge Path</h1>
-               <p>Select at least 2 topics to tailor your coding journey.</p>
+               <div>
+                   <h1>Build Your Challenge Path</h1>
+                   <p>Select at least 2 topics to tailor your coding journey.</p>
+               </div>
+               <div className={Styles.topicHeaderButtons}>
+                  <button className={Styles.announceButton}>Clear</button>    
+                  <button className={Styles.clearButton}>Announce</button>
+               </div>
+               
           </div>
                {
                 renderSwitcher()

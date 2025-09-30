@@ -1,18 +1,32 @@
 .upForHeaderBg{
     margin-top: 40px;
-    width: 90%;
-    background-color: #fff;
+    width: 80%;
+    background-color:transparent;
      box-shadow: 2px 1px 15px 2px #f0f0f0;
     border-radius: 7px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap:15px;
 }
 
 .upForHeaderContent{
-  width:60%;
+  width:400px;
+  background-color: #fff;
+  box-shadow: 2px 1px 15px 2px #e0e0e0;
+  flex-grow: 1;
+  border-radius: 7px;
 }
-.upForHeaderAnimation{
-    width:40%;
+.upForHeaderHotTopics{
+    width:350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 5px;
+    flex-grow: 1;
+    padding: 20px 0 20px 0;
+
 }
 .upForHeading{
     font-size: 1.3em;
@@ -21,8 +35,9 @@
     -webkit-background-clip: text;
     background-clip: text; 
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to right,#426effaf,#673De6);
+    background-image: linear-gradient(to left,#2d5effaf,#602cff);
     display: inline-block;
+    font-weight:500;
 
 }
 .language{
@@ -72,11 +87,15 @@
 }
 
 .topicsHeader{
-    width: 90%;
+    width: 80%;
     margin:80px 0px 30px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 .topicsHeader h1{
-    color: #673De6;
+    color: #4925f8;
     font-size: 1em;
     margin: 0 0 10px 0;
 }
@@ -87,3 +106,113 @@
     margin: 0 0 10px 0;
 }
 
+.topicHeaderButtons{
+    display: flex;
+    gap:10px
+}
+
+.announceButton{
+    background-color: transparent;
+    border:none;
+    height: 40px;
+    width: 110px;
+    color: #4622fb;
+    border-radius: 7px;
+    font-size: 0.7em;
+    border:1px solid #4c2bf4;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+   
+}
+
+.clearButton{
+    background-image: linear-gradient(to right,#4c2bf4,#3588fd);
+    color: #fff;
+    border: none;
+    height: 40px;
+    width: 110px;
+    border-radius: 7px;
+    font-size: 0.7em;
+    cursor: pointer;
+     transition: transform 0.3s ease-in-out;
+}
+
+.topicHeaderButtons button:hover{
+    transform: scale(1.05);
+ }
+
+
+.hotTopicHeading{
+    font-size: 1em;
+    font-weight: 500;
+    color: #535353;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+
+.hotTopic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 80%;
+    margin-left: 30px;
+    position: relative;
+}
+
+.hotTopic img{
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0px 10px 0 0;
+   
+}
+.hotTopicPara{
+    font-size: 0.8em;
+    color: #606060;
+   
+    padding: 0;
+}
+
+.choosenByUsersPara{
+    color:transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right,#dadada,#808080);
+    font-size: 0.8em;
+    font-weight: 500;
+    position: absolute;
+    right: 30px;
+    display: inline-block;
+    
+}
+
+.choosenByUsersPara svg{
+     color:#a9a9a9;
+     font-size: 0.8em;
+   
+  
+}
+
+@media (max-width:768px){
+  .topicsHeader{
+    
+    flex-direction: column;
+    gap:15px;
+  }
+
+  @media(max-width:568px){
+   .upForHeaderBg{
+     width: 90%;
+   }
+   .topicsHeader{
+    width: 90%;
+   }
+  }
+}
