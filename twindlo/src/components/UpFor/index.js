@@ -29,7 +29,7 @@ const UpFor = () => {
             gifUrl:'https://res.cloudinary.com/djtbynnte/image/upload/java_gif_dm1klr.gif'
         },
         {
-            id:'c++',
+            id:'cplusplus',
             imageUrl:'https://res.cloudinary.com/djtbynnte/image/upload/c_asq7mk.png',
             gifUrl:'https://res.cloudinary.com/djtbynnte/image/upload/c_gif_arquzx.png'
         },
@@ -72,7 +72,7 @@ const UpFor = () => {
         
     ]
     const fetchTopics = async () => {
-        
+        setApiStatus(apiStatusObj.loading)
         const languageId = languageIds[language]
         const jwtToken = Cookies.get('jwtToken')
         const fetchUrl = `http://localhost:3000/topics?language=${languageId}`
@@ -89,20 +89,23 @@ const UpFor = () => {
             const responseTopics =  await response.json()
             console.log('here' , responseTopics)
             setTopics(responseTopics.topics)
-            setApiStatus(apiStatusObj.loading)
+            setApiStatus(apiStatusObj.success)
          }
         catch(error){
             console.log(error)
          }
     }
-    useEffect(()=>{
-        fetchTopics()
-    },[])
-
 
     const [language,setLanguage] = useState(languages.python)
     const [apiStatus,setApiStatus] = useState(apiStatusObj.loading)
     const [topics,setTopics] = useState(null)
+    
+
+
+    useEffect(()=>{
+      fetchTopics()
+    },[language])
+
 
     const renderTopics = () => {
         return topics.map((eachTopic,index)=>{
@@ -139,7 +142,7 @@ const UpFor = () => {
         }
     }
 
-
+  
     return (
          <>
           <div className = {Styles.upForHeaderBg}>
