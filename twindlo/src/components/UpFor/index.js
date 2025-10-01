@@ -1,5 +1,5 @@
 import Styles from './index.module.css'
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import Cookies from 'js-cookie'
 
 import Topic from '../Topic'
@@ -7,6 +7,8 @@ import Topic from '../Topic'
 
 import { FaFire } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+
+import { MdArrowDropDownCircle } from "react-icons/md";
 
 const UpFor = () => {
     const languages = {
@@ -73,6 +75,7 @@ const UpFor = () => {
     ]
     const fetchTopics = async () => {
         setApiStatus(apiStatusObj.loading)
+        setUpForList([])
         const languageId = languageIds[language]
         const jwtToken = Cookies.get('jwtToken')
         const fetchUrl = `http://localhost:3000/topics?language=${languageId}`
@@ -99,13 +102,31 @@ const UpFor = () => {
     const [apiStatus,setApiStatus] = useState(apiStatusObj.loading)
     const [topics,setTopics] = useState(null)
     const [upForList,setUpForList] = useState([])
-
+    
+    const previewContentBox = useRef()
 
     useEffect(()=>{
       fetchTopics()
     },[language])
-
     
+    const hadleTogglingWhenResize = () => {
+        if(previewContentBox.current){
+            previewContentBox.current.classList.remove(Styles.togglePreviewContent)
+        }
+    }
+    useEffect(()=>{
+        window.addEventListener('resize',hadleTogglingWhenResize)
+
+        return ()=>{
+          window.removeEventListener('resize',hadleTogglingWhenResize)
+        }
+    },[])
+    
+    const handleArrowClick  = () => {
+        if(previewContentBox.current){
+            previewContentBox.current.classList.toggle(Styles.togglePreviewContent)
+        }
+    }
     const handleTopicSelection =  (uniqueTopic) => {
         let newupForList = [...upForList,uniqueTopic]
         if (upForList.includes(uniqueTopic)){
@@ -116,13 +137,19 @@ const UpFor = () => {
         
         setUpForList(newupForList)
     }
+
+    const removeTopic  = event => {
+
+       const filteredTopics = upForList.filter(each=>{
+        return each.id !== parseInt(event.target.id)
+       })
+       setUpForList(filteredTopics)
+    }
     const renderTopics = () => {
 
         
         return topics.map((eachTopic,index)=>{
-            console.log(upForList)
             const isTopicSelected = upForList.includes(eachTopic) ? true : false;
-            console.log(isTopicSelected)
             return <Topic key ={index} topicDetails={eachTopic} handleTopicSelection = {handleTopicSelection} isTopicSelected={isTopicSelected} />
         })
     }
@@ -188,6 +215,44 @@ const UpFor = () => {
                     })
                  }
              </div>
+          </div>
+          
+          
+          <div className={Styles.upForListPreviewBox}>
+               <div className={Styles.upForListOverlay}>
+               </div>
+
+                <div className={Styles.upForListPreviewHeader}>
+                           <p>Topics picked by you.</p>
+                           <button onClick={handleArrowClick}><MdArrowDropDownCircle/></button>
+                </div>
+               
+               <div ref = {previewContentBox} className={Styles.previewContentBox}>
+                    {upForList.length===0 ? (
+                      <div className={Styles.emptyUpForBox}>
+                          <img src='https://res.cloudinary.com/djtbynnte/image/upload/v1759282817/empty-box_1_kpwwde.png' alt='empty-box'/>
+                          <div className={Styles.emptyUpForBoxContent}>
+                             <h1>You have'nt pciked any topic yet.</h1>
+                             <p>select a topic to get started.</p>
+                          </div>
+                      </div>
+                    )
+                    :
+                    (
+                      <div className={Styles.pickedUpForListBox}>
+                            <h1 className={Styles.pickedUpForListBoxHeading}>
+                                Topics pciked by you,
+                            </h1>
+
+                            <div className={Styles.pickedUpForListBoxContent}>
+                                {upForList.map(each=>{
+                                    return <button key = {each.id} id={each.id} onClick = {removeTopic}><img src='https://res.cloudinary.com/djtbynnte/image/upload/v1759284417/icons8-cross-128_a7ytrj.png' alt='cross icon'/>  {each.topic}</button>
+                                })}
+                            </div>    
+                      </div>  
+                    )
+                    }
+               </div>
           </div>
 
           <div className={Styles.topicsHeader}>

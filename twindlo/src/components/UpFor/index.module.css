@@ -245,6 +245,154 @@
     background-color: #e4e3e3;
     margin-top: 30px;
 }
+
+.upForListPreviewBox{
+    position: relative;
+    margin-top: 40px;
+    width:80%;
+    border-radius: 10px;
+    background: #3588fd;
+    background-image: url('https://res.cloudinary.com/djtbynnte/image/upload/v1756007318/login-bg-sample_silnp4.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: max-height 0.3s ease-in-out;
+}
+
+
+.upForListOverlay{
+     position: absolute;
+     top:0;
+     left:0;
+     width: 100%;
+     height: 100%;
+     border-radius: 10px;
+     background-color: #0000003a;
+     backdrop-filter: blur(3px);
+     
+}
+
+.upForListPreviewHeader{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.upForListPreviewHeader p{
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+.upForListPreviewHeader button{
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.upForListPreviewHeader svg{
+    color: #fff;
+}
+
+
+
+.previewContentBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;    
+  opacity: 1;      
+  overflow: hidden; 
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+
+
+.emptyUpForBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    z-index: 1;
+}
+
+.emptyUpForBox img{
+    width:70px;
+}
+.emptyUpForBoxContent{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    gap: 10px;
+}
+
+.emptyUpForBoxContent h1{
+    color: #e7e7e7;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.emptyUpForBoxContent p{
+    color: #bbbbbb;
+    font-size: 0.7em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.pickedUpForListBox{
+    z-index: 1;
+    width: 90%;
+}
+.pickedUpForListBoxHeading{
+   color: #e7e7e7;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 20px 0 20px 0px;
+
+}
+.pickedUpForListBoxContent{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.pickedUpForListBoxContent button{
+    background-color: #fff;
+    border:none;
+    outline: none;
+    color: #272727;
+    font-size: 0.7em;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.pickedUpForListBoxContent button img{
+    width: 20px;
+    margin-right: 10px;
+    margin: 15px 10px 15px 15px;
+    pointer-events: none;
+} 
+
+
 @media (max-width:768px){
   .topicsHeader{
     
@@ -253,6 +401,19 @@
   }
 
   @media(max-width:568px){
+
+    .previewContentBox {
+        min-height: 0;
+        max-height: 0px;    
+        opacity: 0;      
+        overflow: hidden; 
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .togglePreviewContent {
+      max-height: 900px;   /* enough space to show your content */
+      opacity: 1;          /* visible */
+    }
    .upForHeaderBg{
      width: 90%;
    }
@@ -262,5 +423,29 @@
    .skeletonCard{
      width: 90%;
    }
+   .upForListPreviewBox{
+    width: 90%;
+   }
+   .upForListPreviewHeader{
+    display: flex;
+  }
+
+
+   .emptyUpForBox img{
+    width:50px;
+   }
+   .emptyUpForBoxContent h1{
+    font-size: 0.8em;
+   }
+
+   .emptyUpForBoxContent p{
+    font-size: 0.5em;
+  }
+
+  .pickedUpForListBoxHeading{
+    display: none;
+  }
+
   }
 }
+
