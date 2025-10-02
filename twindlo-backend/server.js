@@ -115,7 +115,9 @@ twindlo.post('/signup', authentication ,async (request,response)=>{
     const checkExistingUser = 'SELECT * FROM users WHERE email=?'
     const [existingUser] = await db.execute(checkExistingUser,[email])
     const user = existingUser[0]
-   
+
+ 
+
     if (existingUser.length>0){
         return response.status(400).json({
             result:'failed',
@@ -126,9 +128,15 @@ twindlo.post('/signup', authentication ,async (request,response)=>{
     const hashedPassword  =  await bcrypt.hash(password, 10)
     const addUserQuery  = 'INSERT INTO users (email,password) VALUES (?,?)';
 
-    const payLoad = {email,isVerified}
-    const jwtToken = jwt.sign(payLoad,secretkey)
+    
     const [retrievedResponse] = await db.execute(addUserQuery,[email,hashedPassword])
+    
+    const getUser = 'SELECT * FROM users WHERE email = ?'
+
+    const [userTableResponse] = await db.execute(getUser,[email])
+    const userId = userTableResponse[0].id
+    const payLoad = {email,isVerified,userId}
+    const jwtToken = jwt.sign(payLoad,secretkey)
 
     response.status(200).json({
              result:'success',
@@ -417,7 +425,7 @@ console.log(defaultProfile)
          accountType,
          gender
         } = answers
-
+  console.log(answers)
   try{
      await db.beginTransaction()
 
@@ -435,7 +443,9 @@ console.log(defaultProfile)
      const updateIsVerifiedQuery = 'UPDATE USERS  SET email = ? , isVerified = ?  WHERE email = ?'
      const [dbResponse] = await db.execute(updateIsVerifiedQuery,[newMail,isVerified,email])
      console.log('here',dbResponse.affectedRows)   
-     const payLoad = {email:newMail,isVerified,name}
+
+     
+     const payLoad = {email:newMail,isVerified,name,userId}
 
      console.log(payLoad)
      
@@ -483,7 +493,7 @@ twindlo.get('/user-basic-profile-details',async (request,response)=>{
   }
   const jwtToken = authorization.split(' ')[1]
   const payLoad = jwt.verify(jwtToken,secretkey)
-  const {email}  = payLoad 
+  const {email,isVerified,name}  = payLoad 
   const getUserId= 'SELECT id FROM  USERS WHERE email = ?'
 
   try {
@@ -514,7 +524,7 @@ twindlo.get('/user-basic-profile-details',async (request,response)=>{
         message:"No Records For user !"
       })
     }
-
+ 
     const profileDetails = details[0]
     response.status(200).json({profileDetails})
   }
@@ -567,3 +577,53 @@ twindlo.get('/topics' , async (request,response)=>{
      }
 })
 
+
+
+twindlo.post('/add-upfor',async (request,response)=>{
+
+  const secretkey = 'insomnia'
+  const {languageId,topics} = request.body
+
+  const {authorization} = request.headers
+  const jwtToken = authorization.split(' ')[1]
+  
+  
+
+  if (jwtToken==='undefined'){
+    return response.status(400).json({
+      result:'failed',
+      success:false,
+      message:'Epty JWT token recieved'
+    })
+  }
+
+  if (topics.length===0){
+   return response.status(400).json({
+       result:'failed',
+       success:false,
+       message:'No Topics Selected'
+    })
+  }
+  
+  const payLoad = jwt.verify(jwtToken,secretkey)
+  const {userId} = payLoad
+  try {
+    const addUpForQuery = 'INSERT INTO upfor (user_id,language_id,topics) VALUES(?,?,?)'
+    const [rows] = await db.execute(addUpForQuery,[userId,languageId,topics])
+    console.log(rows)
+
+    return response.status(200).json({
+       result:'success',
+       success:true,
+       message:'upfor added successfully'
+    })
+  }
+  catch(error){
+    console.log(error)
+    return response.status(400).json({
+       result:'failed',
+       success:false,
+       message:'uncaught error'
+    })
+  }
+})

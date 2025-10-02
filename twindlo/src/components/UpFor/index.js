@@ -3,7 +3,7 @@ import {useState,useEffect,useRef} from 'react'
 import Cookies from 'js-cookie'
 
 import Topic from '../Topic'
-
+import UserContext from '../UserContext'
 
 import { FaFire } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
@@ -104,12 +104,17 @@ const UpFor = () => {
     const [upForList,setUpForList] = useState([])
     
     const previewContentBox = useRef()
+    const dropDownRef = useRef()
+    const dropDownSvg = useRef()
 
     useEffect(()=>{
       fetchTopics()
     },[language])
     
     const hadleTogglingWhenResize = () => {
+        if(dropDownSvg.current){
+            dropDownSvg.current.classList.remove(Styles.rotateDropDown)
+        }
         if(previewContentBox.current){
             previewContentBox.current.classList.remove(Styles.togglePreviewContent)
         }
@@ -123,6 +128,9 @@ const UpFor = () => {
     },[])
     
     const handleArrowClick  = () => {
+        if(dropDownRef.current && dropDownSvg.current){
+            dropDownSvg.current.classList.toggle(Styles.rotateDropDown)
+        }
         if(previewContentBox.current){
             previewContentBox.current.classList.toggle(Styles.togglePreviewContent)
         }
@@ -145,6 +153,12 @@ const UpFor = () => {
        })
        setUpForList(filteredTopics)
     }
+
+    const clearUpForList = () => {
+        setUpForList([])
+    }
+
+
     const renderTopics = () => {
 
         
@@ -159,7 +173,7 @@ const UpFor = () => {
             <h1>Failed</h1>
         )
     }
-
+    
     const renderSkeleton= ()=>{
         return Array.from({length:5}).map((_,index)=>{
              return <div className={Styles.skeletonCard}>
@@ -186,45 +200,78 @@ const UpFor = () => {
     
   
     return (
-         <>
-          <div className = {Styles.upForHeaderBg}>
-             <div className={Styles.upForHeaderContent}>
-                 <h1 className={Styles.upForHeading}>Im Up for....</h1>
-                 <div className={Styles.languageButtons}>
-                    {
-                        languageUrlList.map(each=>{
-                            return <button onClick={()=>{
+        <UserContext.Consumer>
+            {
+              (value)=>{
+                const {name} = value
+                const sendUpForListsToDb = async () => {
+                       const jwtToken = Cookies.get('jwtToken')
+                       
+                       const languageId = languageIds[language]
+                       const addUpForData = 'http://localhost:3000/add-upfor'
+                       const options = {
+                             method:'POST',
+                             headers: {
+                            'Content-Type':'application/json',
+                             Authorization:`Bearer ${jwtToken}`
+                            },
+                            body:JSON.stringify({
+                              languageId,
+                              topics:upForList.map(each=>{
+                                return each.topic
+                              }),
+                            })
+                        }
+                    try {
+                        const response = await fetch(addUpForData,options)
+                        const jsonResponse = await response.json()
+                        console.log(jsonResponse)
+                        setUpForList([])
+                    }
+                    catch(error){
+                        console.log(error)
+                    }
+                }
+
+                return  <>
+                   <div className = {Styles.upForHeaderBg}>
+                      <div className={Styles.upForHeaderContent}>
+                         <h1 className={Styles.upForHeading}>Im Up for....</h1>
+                         <div className={Styles.languageButtons}>
+                             {
+                             languageUrlList.map(each=>{
+                                return <button onClick={()=>{
                                          setLanguage(each.id)
                                        }} className={`${Styles.languageButton} ${language===each.id ? Styles.makeItBigger:''}`}>
                                        <img src={language===each.id?each.gifUrl:each.imageUrl} alt={each.id}/>
                                    </button>
-                        })
-                    }
-                 </div>
-                 <p className={Styles.microClarity}>( Pick your language. Then choose 2+ topics )</p>
-             </div>
-             <div className={Styles.upForHeaderHotTopics}>
-                 <h1 className={Styles.hotTopicHeading}>Hot topics of the week <FaFire/></h1>
-                 {
-                    hotTopics.map(each=>{
-                        return <div className={Styles.hotTopic}>
+                                })
+                             }
+                         </div>
+                         <p className={Styles.microClarity}>( Pick your language. Then choose 2+ topics )</p>
+                       </div>
+                   <div className={Styles.upForHeaderHotTopics}>
+                      <h1 className={Styles.hotTopicHeading}>Hot topics of the week <FaFire/></h1>
+                      {
+                      hotTopics.map(each=>{
+                         return <div className={Styles.hotTopic}>
                                    <img src={each.imageUrl}  alt='hot-topic-image'/>
                                    <p className={Styles.hotTopicPara}>{each.topic}</p>
                                    <p className={Styles.choosenByUsersPara}><FaUser/> {each.people}</p>
                                </div>
-                    })
-                 }
-             </div>
-          </div>
+                         })
+                      }
+                   </div>
+                </div>
           
           
           <div className={Styles.upForListPreviewBox}>
                <div className={Styles.upForListOverlay}>
                </div>
 
-                <div className={Styles.upForListPreviewHeader}>
+                <div ref = {dropDownRef} onClick={handleArrowClick} className={Styles.upForListPreviewHeader}>
                            <p>Topics picked by you.</p>
-                           <button onClick={handleArrowClick}><MdArrowDropDownCircle/></button>
+                           <button ><MdArrowDropDownCircle ref={dropDownSvg} /></button>
                 </div>
                
                <div ref = {previewContentBox} className={Styles.previewContentBox}>
@@ -241,7 +288,7 @@ const UpFor = () => {
                     (
                       <div className={Styles.pickedUpForListBox}>
                             <h1 className={Styles.pickedUpForListBoxHeading}>
-                                Topics pciked by you,
+                                Topics pciked by you.
                             </h1>
 
                             <div className={Styles.pickedUpForListBoxContent}>
@@ -261,8 +308,8 @@ const UpFor = () => {
                    <p>Select at least 2 topics to tailor your coding journey.</p>
                </div>
                <div className={Styles.topicHeaderButtons}>
-                  <button className={Styles.announceButton}>Clear</button>    
-                  <button className={Styles.clearButton}>Announce</button>
+                  <button onClick = {clearUpForList} disabled={upForList.length===0} className={`${Styles.announceButton} ${upForList.length!==0 ? Styles.showButton :''}`}>Clear</button>    
+                  <button onClick = {sendUpForListsToDb} disabled={upForList.length===0} className={`${Styles.clearButton} ${upForList.length!==0 ? Styles.showButton :''}`}>Announce</button>
                </div>
                
           </div>
@@ -270,6 +317,10 @@ const UpFor = () => {
                 renderSwitcher()
                }
          </>
+        }
+      }
+  </UserContext.Consumer>
+        
     )
 }
 

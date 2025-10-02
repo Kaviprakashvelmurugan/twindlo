@@ -31,6 +31,7 @@ const NavbarWs = ({toggleDashBoard}) => {
            const response = await fetch(getProfileApi,options)
            let jsonResponse = await response.json()
            jsonResponse = jsonResponse.profileDetails
+      
            const details = {
               accountType :jsonResponse.account_type,
               degree:jsonResponse.degree,

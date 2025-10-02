@@ -27,7 +27,7 @@ class WorkSpace  extends Component {
         const jwtToken = Cookies.get('jwtToken');
         const decodedJwt = jwtDecode(jwtToken);
         const {isVerified,id,email,name} = decodedJwt
-        
+       
         this.setState({user:{userId:id,email:email,name:name}})
         if (isVerified){
            this.setState({userVerified:true})
@@ -99,6 +99,7 @@ class WorkSpace  extends Component {
    
     render(){
         const {userVerified,user} = this.state
+
         const {name,userId,email} = user || {};
         return (
             <UserContext.Provider value={{userId,email,name}}>
