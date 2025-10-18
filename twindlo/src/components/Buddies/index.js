@@ -1,7 +1,9 @@
 import Styles from './index.module.css'
 
 import { useEffect,useState } from 'react'
-
+import Cookies from 'js-cookie'
+import { jwtDecode } from 'jwt-decode'
+import UserItem from '../UserItem'
 
 
 const Buddies = () => {
@@ -25,6 +27,7 @@ const Buddies = () => {
             console.log(response)
             if(response.ok){
              setusersList(jsonResponse.usersList)
+             console.log(jsonResponse.usersList)
              setUsersListStatus(usersListStatusObj.success)
             }
 
@@ -57,9 +60,15 @@ const Buddies = () => {
     
 
     const renderUsersList = () => {
-      return (
-        <h1>Still Building</h1>
-      )
+        const jwtToken = Cookies.get('jwtToken')
+        const decodedJwt= jwtDecode(jwtToken)
+        const you = decodedJwt.userId
+        return usersList.map(eachUser=>{
+            if (eachUser.user_id !==you){
+               return <UserItem key={eachUser.id} user={eachUser}/>
+            }
+           
+        })
     }
 
 
@@ -87,7 +96,7 @@ const Buddies = () => {
             </div>
 
             <div className={Styles.buddiesScrollBox}>
-               <div className={Styles.scrollContent}>
+               <ul className={Styles.scrollContent}>
                     <div className={Styles.usersHeader}>
                         <div className={Styles.title}>
                               <h1>Discover Buddies</h1>
@@ -97,7 +106,7 @@ const Buddies = () => {
                         <hr className={Styles.usersListHrLine}/>
                     </div>
                     {usersListSwitchers()}
-               </div>
+               </ul>
             </div>
         </div>
     )

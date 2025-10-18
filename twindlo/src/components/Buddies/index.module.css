@@ -35,11 +35,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
   box-sizing: border-box;
   border: 0.6px solid rgb(224, 224, 224);
-  
+  list-style-type: none;
+  padding: 0;
+  overflow-y: auto;
+  overflow: hidden;
+  scrollbar-width: none;
 }
 
 .usersHeader{
@@ -88,7 +92,7 @@
 
 .usersSkeleton{
   width:90%;
-  height: 120px;
+  height: 100px;
   background-color: #ffffff;
   margin-bottom: 20px;
   display: flex;

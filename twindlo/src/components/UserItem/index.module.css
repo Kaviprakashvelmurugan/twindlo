@@ -1,0 +1,67 @@
+.userItem{
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px 0 10px 0;
+    border-radius: 7px;
+    box-shadow: 2px 1px 15px 2px #e5e5e5;
+}
+
+.profileBox{
+    width:25%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.profileBox img{
+    width: 50%;
+
+}
+
+.textBox{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+   
+}
+
+.textBox h1{
+    padding: 0;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #171717;
+    margin: 0 0 7px 0;
+}
+
+
+.textBox p{
+    margin: 0;
+    padding: 0;
+    font-size: 0.7em;
+    font-weight: 500;
+    color: #838383;
+}
+
+.userItem button {
+    color: #ffffff;
+    border:none;
+    background-image: linear-gradient(to right,#082ae6,rgb(10, 153, 241));
+    width: 80px;
+    height: 35px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 0.6em;
+    transition: all 0.4s linear;
+    cursor: pointer;
+}
+
+.userItem button:hover{
+   transform: scale(1.05);
+}
+
