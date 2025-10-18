@@ -29,6 +29,7 @@ const DashHome = () => {
         <UserContext.Consumer>
             {value=>{
                 const {userId,name,email} = value;
+                console.log(name)
                 return(
                   <div className={Styles.dashHomeBg}>
                     <div className={Styles.userWelcomeCard}>

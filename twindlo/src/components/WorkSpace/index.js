@@ -6,7 +6,7 @@ import NavbarWs from '../NavbarWS';
 import Dashboard from '../Dashboard'
 import DashHome from '../DashHome'
 import UpFor from '../UpFor'
-
+import Buddies from '../Buddies'
 
 import Cookies from 'js-cookie'
 import {jwtDecode}  from 'jwt-decode'
@@ -18,7 +18,8 @@ class WorkSpace  extends Component {
 
     dashObj = {
         home:'home',
-        upFor:'upFor'
+        upFor:'upFor',
+        buddies:'buddies'
     }
 
     state = {userVerified:false ,showDashBoard:false,dashValue:this.dashObj.home,user:null}
@@ -90,6 +91,8 @@ class WorkSpace  extends Component {
                 return <DashHome recieveDashValue = {this.recieveDashValue}/>;
             case this.dashObj.upFor:
                 return <UpFor/>
+            case this.dashObj.buddies:
+                return <Buddies/>
             default:
                 return null
         }
@@ -98,11 +101,15 @@ class WorkSpace  extends Component {
 
    
     render(){
-        const {userVerified,user} = this.state
 
-        const {name,userId,email} = user || {};
+        const jwtToken = Cookies.get('jwtToken');
+        const decodedJwt = jwtDecode(jwtToken);
+        const {name,id,email} = decodedJwt 
+
+        const {userVerified} = this.state
         return (
-            <UserContext.Provider value={{userId,email,name}}>
+
+            <UserContext.Provider value={{userId:id,email,name}}>
                 <div className={Styles.workSpaceBg}>
                      { !userVerified &&   <div className={Styles.stump}>
                         <Stump  renderWithUpdate= {this.renderWithUpdate} />

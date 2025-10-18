@@ -170,6 +170,8 @@ twindlo.post('/signin', authentication , async (request,response)=>{
         )
     }
     
+    
+
     const isPasswordMatch = await bcrypt.compare(password,user.password)
     if (!isPasswordMatch){
         return (
@@ -183,8 +185,12 @@ twindlo.post('/signin', authentication , async (request,response)=>{
     const getIsVerified = 'SELECT isVerified FROM users WHERE email=?'
     const [dbResponse] = await db.execute(getIsVerified,[email])
     const {isVerified} = dbResponse[0]
-    console.log(isVerified)
-    const payLoad = {id:user.id,email,isVerified}
+
+    const getUserName = 'SELECT * FROM user_profiles WHERE user_id = ?'
+    const [rows] = await db.execute(getUserName,[user.id])
+    const username = rows[0].username
+    
+    const payLoad = {id:user.id,email,isVerified,name:username}
     const jwtToken = jwt.sign(payLoad , secretkey)
     return response.status(200).json({result:'success',message:'logged in successfully',jwtToken,user,success:true})
 })
@@ -626,4 +632,31 @@ twindlo.post('/add-upfor',async (request,response)=>{
        message:'uncaught error'
     })
   }
+})
+
+
+twindlo.get('/get-all-users' , async (request,response) => {
+   const getUsersQuery = 'SELECT * FROM user_profiles'
+   const [rows] = await db.execute(getUsersQuery)
+   if (!rows){
+    response.status(400).json({
+      result:'failed',
+      success:'false',
+      message:'Server Error Occured'
+    })
+   }
+
+   if (rows.length===0){
+    response.status(400).json({
+      result:'failed',
+      success:'false',
+      message:'No users Found'
+    })
+   }
+   response.status(200).json({
+    usersList:rows,
+    success:true,
+    result:'sucesss',
+    message:'Users Found'
+   })
 })
