@@ -3,34 +3,83 @@ import Styles from './index.module.css'
 import { useEffect,useState } from 'react'
 
 
-import { FaUsers } from "react-icons/fa";
 
 const Buddies = () => {
+
+    const usersListStatusObj =  {
+        success:'sucess',
+        failed:'failed',
+        loading:'loading'
+    }
     const [usersList,setusersList] = useState([])
+    const [usersListStatus,setUsersListStatus] = useState(usersListStatusObj.loading)
+
     const getUsers = async () => {
-
-
         const fetchUrl = 'http://localhost:3000/get-all-users'
         const options = {
             method:'GET',
         }
-
         try {
             const response = await fetch(fetchUrl,options)
             const jsonResponse = await response.json()
             console.log(response)
             if(response.ok){
              setusersList(jsonResponse.usersList)
+             setUsersListStatus(usersListStatusObj.success)
             }
+
             console.log(jsonResponse)
         }
         catch (error) {
              console.log(error)
+             setUsersListStatus(usersListStatusObj.loading)
         }
     }
     useEffect(()=>{
         getUsers()
     },[])
+
+
+    const renderUsersSkeleton = () => {
+          return (
+            Array.from({length:6}).map((_,index)=>{
+                return <div className={Styles.usersSkeleton}>
+                           <div className={Styles.skeletonImg}> 
+                           </div>
+                           <div className={Styles.skeletonTextContent}>
+                                <div className={Styles.skeletonUserHeading}></div>
+                                <div className={Styles.skeletonUserPara}></div>
+                           </div>
+                       </div>
+            })
+          )
+    }
+    
+
+    const renderUsersList = () => {
+      return (
+        <h1>Still Building</h1>
+      )
+    }
+
+
+    const renderUsersFailureView = () => {
+
+    }
+
+
+    const usersListSwitchers = () => {
+
+        switch (usersListStatus) {
+            case usersListStatusObj.loading:
+                return renderUsersSkeleton()
+            case usersListStatusObj.success:
+                return renderUsersList()
+            default:
+                return renderUsersFailureView()
+        }
+    }
+
     return (
         <div className={Styles.buddiesBg}>
             <div className={Styles.buddiesContent}>
@@ -47,7 +96,7 @@ const Buddies = () => {
                         <p className={Styles.headerPara}>Find driven learners like you.</p>
                         <hr className={Styles.usersListHrLine}/>
                     </div>
- 
+                    {usersListSwitchers()}
                </div>
             </div>
         </div>
